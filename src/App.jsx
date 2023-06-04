@@ -1,3 +1,4 @@
+
 import { Route, Routes } from "react-router";
 import "./App.css";
 import Home from "./pages/Home/Home";
@@ -17,6 +18,7 @@ function App() {
         <Route path='/crear evento' element={<CrearEvento/>}/>
         <Route path='*' element={<Home/>}/>
       </Routes>
+
     </>
   );
 }
