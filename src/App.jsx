@@ -4,10 +4,12 @@ import Home from "./pages/Home/Home";
 import DetallesEvento from "./pages/DetallesEvento/DetallesEvento";
 import CrearEvento from "./pages/CrearEvento/CrearEvento";
 import DateDeAlta from "./pages/DateDeAlta/DateDeAlta";
+import Header from "./shared/components/Header/Header";
 
 function App() {
   return (
     <>
+    <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/:id' element={<DetallesEvento/>}/>
