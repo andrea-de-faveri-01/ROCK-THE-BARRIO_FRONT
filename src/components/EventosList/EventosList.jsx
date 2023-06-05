@@ -15,7 +15,7 @@ const EventosList = () => {
  return (
    <div>
    {loading  && (
-    <img src="/public/assets/loading.gif"/>
+    <img src="/assets/loading.gif"/>
    )}
    {eventos.map((evento) =>{
     return (

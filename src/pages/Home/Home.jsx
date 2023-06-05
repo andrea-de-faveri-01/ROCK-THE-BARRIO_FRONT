@@ -1,6 +1,5 @@
 import React from 'react'
-import EventosList from '../../complements/EventosList/EventosList';
-import Button from '../../shared/components/Button/Button';
+import EventosList from '../../components/EventosList/EventosList';
 
 const Home = () => {
 
