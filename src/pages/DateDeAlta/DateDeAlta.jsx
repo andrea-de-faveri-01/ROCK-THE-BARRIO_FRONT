@@ -1,8 +1,12 @@
 import React from 'react'
+import FormularioRegistro from '../../components/FormularioRegistro/FormularioRegistro.jsx'
 
 const DateDeAlta = () => {
   return (
-    <div>DateDeAlta</div>
+    <div>DateDeAlta
+       <FormularioRegistro/>
+    </div>
+   
   )
 }
 

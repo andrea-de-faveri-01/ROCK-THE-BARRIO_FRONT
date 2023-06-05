@@ -1,16 +1,15 @@
 import React from 'react'
 import "./Header.css"
-import Button from '../Button/Button'
+import Navbar from '../Navbar/Navbar'
 
 const Header = () => {
   return (
-    <div class="header">
-            <div class="display">
-                <span class='span-boton'><Button text="Acceder" type='medium'/></span>
-                <span class="span-boton"><Button text="Registrarse" type='medium'/></span>  
+    <div className="header">
+            <div>
+              <Navbar/>
             </div>
             <div>
-                <h1 class='title'>ROCK THE BARRIO</h1>
+                <h1 className='title'>ROCK THE BARRIO</h1>
             </div>
 
 
