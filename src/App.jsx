@@ -1,11 +1,12 @@
 
-import { Route, Routes } from "react-router";
+
 import "./App.css";
 import Home from "./pages/Home/Home";
 import DetallesEvento from "./pages/DetallesEvento/DetallesEvento";
 import CrearEvento from "./pages/CrearEvento/CrearEvento";
 import DateDeAlta from "./pages/DateDeAlta/DateDeAlta";
 import Header from "./components/Header/Header";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
