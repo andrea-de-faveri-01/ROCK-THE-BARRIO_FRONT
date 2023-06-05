@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/:id' element={<DetallesEvento/>}/>
-        <Route path='/date de alta' element={<DateDeAlta/>}/>
-        <Route path='/crear evento' element={<CrearEvento/>}/>
+        <Route path='/date-de-alta' element={<DateDeAlta/>}/>
+        <Route path='/crear-evento' element={<CrearEvento/>}/>
         <Route path='*' element={<Home/>}/>
       </Routes>
 
