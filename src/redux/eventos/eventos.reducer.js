@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   eventos: [],
   loading: false,
+  evento: null,
 };
 export const eventosReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -8,6 +9,8 @@ export const eventosReducer = (state = INITIAL_STATE, action) => {
       return { ...state, loading: true };
     case "GET_EVENTOS":
       return { ...state, loading: false, eventos: [...action.contenido] };
+      case "GET_EVENTO":
+        return { ...state, loading: false, evento: action.contenido };
     case "ERROR":
       return {
         ...state,
