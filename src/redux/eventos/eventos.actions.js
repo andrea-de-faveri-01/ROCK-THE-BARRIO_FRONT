@@ -14,6 +14,18 @@ const getAllEventos = async () => {
 
 }
 
+
+const getEventoById = async (id) => {
+
+    dispatch({ type: "LOADING"});
+// hay que cambiar el "ais".
+   const resultado = await API.get("ais");
+
+   dispatch({ type: "GET_EVENTO", contenido: resultado.data })
+
+}
+
 export {
-    getAllEventos
+    getAllEventos,
+    getEventoById
 }

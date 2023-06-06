@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 const Evento = ({ evento }) => {
   return (
     <div>
-      <h2><Link to={`/${evento._id}`}>TITLE</Link></h2>
+      <h2>
+        <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>EVENTO</Link>
+      </h2>
       <div>
         <p>{evento._id}</p>
         {/* <p>{evento.title}</p> */}

@@ -10,7 +10,7 @@ const ComentariosList = () => {
         getAllComentarios();
        }, [])
       
-       const { loading, comentarios } = useSelector((state) => state.comentarios);
+       const { loading, comentarios } = useSelector((reducer) => reducer.comentariosReducer);
       
 
  return (
