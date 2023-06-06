@@ -5,7 +5,7 @@ const { dispatch } = store;
 
 const getAllComentarios = async () => {
   dispatch({ type: "LOADING" });
-  const resultado = await API.get("ais");
+  const resultado = await API.get("comentarios");
 
   dispatch({ type: "GET_COMENTARIOS", contenido: resultado.data });
 };
