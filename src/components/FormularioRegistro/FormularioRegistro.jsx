@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import Button from '../Button/Button';
+
 
 const FormularioRegistro = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -63,7 +63,6 @@ const FormularioRegistro = () => {
         />
         {errors.avatar && <span>Archivo inválido. Se permiten formatos PNG y JPG.</span>}
       
-      <Button text={"Registrarse"} type={"medium"}/>
     </form>
   );
 };

@@ -1,12 +1,13 @@
 import React from 'react'
 import "./Navbar.css"
 import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
-const Navbar = (top, right) => {
+const Navbar = () => {
   return (
-    <div className='{top right}'>
-                <span><Button text="Acceder" type='medium'/></span>
-                <span><Button text="Registrarse" type='medium'/></span>  
+    <div>
+                <Link to="/login"><span><Button text="Acceder" type='medium'/></span></Link>
+                <Link to="date-de-alta"><span><Button text="Registrarse" type='medium'/></span></Link>
     </div>
   )
 }
