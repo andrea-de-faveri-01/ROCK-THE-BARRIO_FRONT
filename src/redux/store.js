@@ -5,6 +5,6 @@ import { comentariosReducer } from "./comentarios/comentarios.reducer";
 export default configureStore({
   reducer: {
     eventosReducer: eventosReducer,
-    comentariosReducer: comentariosReducer
+    comentariosReducers: comentariosReducer
   },
 });
