@@ -43,7 +43,7 @@ const DetallesEvento = () => {
       </div>
       <ComentariosList eventId={evento._id}/>
       </>
-      ) : 'no hay evento'}
+      ) : 'No hay eventos que mostrar'}
     </div>
   );
 };
