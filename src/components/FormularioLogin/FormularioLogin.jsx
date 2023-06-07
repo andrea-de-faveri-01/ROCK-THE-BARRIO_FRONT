@@ -1,13 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import Button from '../Button/Button';
 import "./FormularioLogin.css"
 
 const FormularioLogin = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    // Hacer algo con los datos de inicio de sesión, como enviar una solicitud al servidor
+
     console.log('Email:', data.email);
     console.log('Contraseña:', data.password);
   };
