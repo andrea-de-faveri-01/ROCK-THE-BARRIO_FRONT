@@ -10,4 +10,14 @@ const getAllComentarios = async () => {
   dispatch({ type: "GET_COMENTARIOS", contenido: resultado.data });
 };
 
-export { getAllComentarios };
+const getComentariosByEvent = async (eventId) =>{
+  console.log('eventid',eventId)
+  dispatch({ type: "LOADING" });
+  console.log(`HOLA ESTOY EN LA LINEA 15 ${eventId}`);
+  const resultado = await API.get(`comentario/getbyevent/${eventId}`);
+  console.log(`HOLA ESTOY EN LA LINEA 17 ${eventId}`);
+  console.log('data',resultado.data)
+  dispatch({ type: "GET_COMENTARIOSBYEVENTO", contenido: resultado.data });
+}
+
+export { getAllComentarios, getComentariosByEvent};

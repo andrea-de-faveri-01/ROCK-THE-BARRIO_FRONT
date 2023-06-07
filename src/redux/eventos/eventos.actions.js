@@ -17,6 +17,7 @@ const getAllEventos = async () => {
 
 const getEventoById = async (id) => {
 
+    dispatch({type: "CLEAR_EVENTO"})
     dispatch({ type: "LOADING"});
 
    const resultado = await API.get(`/evento/getbyid/${id}`);
