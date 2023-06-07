@@ -8,6 +8,8 @@ import Button from "../../components/Button/Button";
 
 
 const DetallesEvento = () => {
+
+
   const { id } = useParams();
 
   const { loading, evento } = useSelector((reducer) => reducer.eventosReducer);
@@ -16,12 +18,20 @@ const DetallesEvento = () => {
     getEventoById(id)
   }, [id]);
 
+
+
   const comprar = () => {
     // window.open({evento.url}, 'https://www.ticketmaster.es/');
     // window.location.href = 'https://www.ticketmaster.es/';
     // window.location.href = {evento.url};
     <Link to={{ pathname: `/${evento.url}`}}></Link>
   };
+
+  const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+  const fechaStart = evento?.date_start ? new Date(evento.date_start).toLocaleDateString('es-ES', opciones) : '';
+  const fechaEnd = evento?.date_end ? new Date(evento.date_end).toLocaleDateString('es-ES', opciones) : '';
+  
+
   return (
     
     <div>
@@ -34,14 +44,14 @@ const DetallesEvento = () => {
             <h2>{evento.subtitle}</h2>
             <h3>{evento.site}</h3>
             {evento.price==0 ? <h3>GRATUITO</h3>: <h3>{evento.price} €</h3>}
-            <h3>{evento.date_start}</h3>
-            {evento.date_end && <h3>{evento.date_end}</h3>}
+            <h3>{fechaStart}</h3>
+            {fechaEnd && <h3>{fechaEnd}</h3>}
             {evento.genre && <h3>{evento.genre}</h3>}
             <p>{evento.content}</p>
             <Button text="Comprar" type="medium" onClick={comprar}/>
             <h1>{evento._id}</h1>        
       </div>
-      <ComentariosList eventId={evento._id}/>
+      {evento ? <ComentariosList eventId={evento._id} /> : null}
       </>
       ) : 'No hay eventos que mostrar'}
     </div>

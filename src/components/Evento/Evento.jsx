@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 
 const Evento = ({ evento }) => {
 
+  const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+  const fechaStart = evento.date_start ? new Date(evento.date_start).toLocaleDateString('es-ES', opciones) : '';
+  const fechaEnd = evento.date_end ? new Date(evento.date_end).toLocaleDateString('es-ES', opciones) : '';
 
   return (
     <div>
@@ -15,8 +18,8 @@ const Evento = ({ evento }) => {
         <p>{evento.content}</p>
         <p>{evento.user_creator}</p>
         <p>{evento.site}</p>
-        <p>{evento.date_start}</p>
-        <p>{evento.date_end}</p>
+        <p>{fechaStart}</p>
+        <p>{fechaEnd}</p>
         <Link to={{ pathname: `/${evento._id}`, state: { evento } }}><img src={evento.image}/></Link>
         <p>{evento.genre}</p>
       </div>
