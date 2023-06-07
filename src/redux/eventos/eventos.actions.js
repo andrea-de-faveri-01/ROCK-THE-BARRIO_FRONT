@@ -7,7 +7,7 @@ const { dispatch } = store;
 const getAllEventos = async () => {
 
     dispatch({ type: "LOADING"});
-// para ir probando he utilizado mi node de un antiguo proyecto, hay que cambiar el "ais" por "eventos" cuando este el back.
+
    const resultado = await API.get("/evento");
 
    dispatch({ type: "GET_EVENTOS", contenido: resultado.data })
@@ -18,8 +18,8 @@ const getAllEventos = async () => {
 const getEventoById = async (id) => {
 
     dispatch({ type: "LOADING"});
-// hay que cambiar el "ais".
-   const resultado = await API.get("idEventos");
+
+   const resultado = await API.get("/getbyid/:idEvento");
 
    dispatch({ type: "GET_EVENTO", contenido: resultado.data })
 
