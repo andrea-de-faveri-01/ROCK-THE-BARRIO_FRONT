@@ -23,6 +23,7 @@ const DetallesEvento = () => {
         {evento ? (
           <>
             <p>{evento._id}</p>
+            
           </>
         ): 'no hay evento'}
       </div>
