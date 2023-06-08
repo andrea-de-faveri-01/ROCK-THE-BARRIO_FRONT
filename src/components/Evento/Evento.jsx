@@ -30,7 +30,7 @@ const Evento = ({ evento }) => {
         <p>{fechaStart}</p>
         <p>{fechaEnd}</p>
         <p>{evento.genre}</p>
-        <p>{evento.price}</p>
+        {evento.price == 0 ? <p>GRATUITO</p> : <p>{evento.price} €</p>}
       </div>
     </div>
   );
