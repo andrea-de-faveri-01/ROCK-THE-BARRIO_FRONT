@@ -11,6 +11,7 @@ API.post("/usuario/login", datos)
     dispatch({
         type: "LOGIN",
         contenido: {
+          user: resultado.data.user,
             token: resultado.data.token,
         },
     });

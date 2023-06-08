@@ -6,12 +6,14 @@ const Comentario = ({ comentario }) => {
     <div>
       <h2>COMENTARIO</h2>
       <div>
-        <p>{comentario._id}</p>
-        {/* <p>{comentario.user}</p> */}
+        {/* <p>{comentario._id}</p> */}
+        <p>{comentario.user}</p>
         {/* <p>{comentario.event}</p> */}
-        {/* <p>{comentario.title}</p> */}
-        {/* <p>{comentario.content}</p> */}
-        {/* <p>{comentario.value}</p> */}
+        <p>{comentario.title}</p>
+        {comentario.value ?( 
+        <p>{comentario.value}</p>):""}
+        {comentario.content ?( 
+        <p>{comentario.content}</p>):""}
       </div>
     </div>
   );
