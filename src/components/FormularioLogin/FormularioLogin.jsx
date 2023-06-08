@@ -67,7 +67,7 @@ const FormularioLogin = () => {
           <label>password</label>
           <input {...register("password")} type="password" />
         </div>
-        <Button text="Login" type="large" />
+        <Button text="Login" type="large"/>
         {error && <p>{error}</p>}
       </form>
     </div>
