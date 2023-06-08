@@ -6,8 +6,8 @@ const INITIAL_STATE = {
     switch (action.type) {
       case "LOADING":
         return { ...state, loading: true };
-      case "GET_COMENTARIOS":
-        return { ...state, loading: false, comentarios: [...action.contenido] };
+      case "GET_COMENTARIOSBYEVENTO":
+        return { ...state, loading: false, comentarios: action.contenido };
       case "ERROR":
         return {
           ...state,
