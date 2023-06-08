@@ -7,10 +7,10 @@
 }
 
 .title{
-font-weight: bolder;
-font-size: 30px;
+
+
 margin-left: 4%;
-margin-top: 2%;
+margin-top: 0%;
 }
 .link:link{
     color: black;
@@ -35,4 +35,12 @@ margin-top: 2%;
 }
 .boton{
     margin-right: 15px;
+}
+@font-face {
+    font-family: "urban-jungle";
+    src: url("./UrbanJungleDEMO.otf");
+}
+.title-font{
+    font-family: "urban-jungle";
+    font-size: 80px;
 }

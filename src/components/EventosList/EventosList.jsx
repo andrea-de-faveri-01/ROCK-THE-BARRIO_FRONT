@@ -9,7 +9,7 @@ const EventosList = () => {
         getAllEventos();
        }, [])
       
-       const { loading, eventos } = useSelector((state) => state.eventos);
+       const { loading, eventos } = useSelector((reducer) => reducer.eventosReducer);
       
 
  return (

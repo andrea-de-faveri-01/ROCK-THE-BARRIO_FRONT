@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
-import { getAllComentarios } from '../../redux/comentarios/comentarios.actions';
+import { getComentariosByEvent } from '../../redux/comentarios/comentarios.actions';
 import { useSelector } from 'react-redux';
 import Comentario from '../Comentario/Comentario';
 
 
-const ComentariosList = () => {
+const ComentariosList = ({eventId}) => {
 
     useEffect(() => {
-        getAllComentarios();
+      getComentariosByEvent(eventId);
        }, [])
       
-       const { loading, comentarios } = useSelector((state) => state.comentarios);
+       const { loading, comentarios } = useSelector((reducer) => reducer.comentariosReducer);
       
 
  return (
@@ -18,11 +18,14 @@ const ComentariosList = () => {
    {loading  && (
     <img src="/assets/loading.gif"/>
    )}
-   {comentarios.map((comentario) =>{
+   {comentarios.length ?
+   (comentarios.map((comentario) =>{
     return (
        <Comentario comentario={comentario} key={comentario._id}/>
     );
-   })}
+   }))
+   :""
+   }
    </div>
  )}
 
