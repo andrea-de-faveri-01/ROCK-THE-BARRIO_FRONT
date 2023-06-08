@@ -15,6 +15,7 @@ API.post("/usuario/login", datos)
             token: resultado.data.token,
         },
     });
+    localStorage.setItem("token", resultado.data.token);
     navigate("/");
 })
   .catch((error) => {
