@@ -11,7 +11,6 @@ const getAllComentarios = async () => {
 };
 
 const getComentariosByEvent = async (eventId) => {
-  console.log("eventid", eventId);
   dispatch({ type: "LOADING" });
 
   const resultado = await API.get(`comentario/getbyevent/${eventId}`);

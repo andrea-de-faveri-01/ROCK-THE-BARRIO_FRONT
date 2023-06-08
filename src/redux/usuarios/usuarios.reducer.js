@@ -25,6 +25,8 @@ export const usuariosReducer = (state = INITIAL_STATE, action) => {
         token: null,
         error: action.contenido.message,
       };
+      case "LOGOUT": 
+      return {...state, user: null, token: null}
     default:
       return state;
   }
