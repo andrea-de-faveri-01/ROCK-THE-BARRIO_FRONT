@@ -12,26 +12,30 @@ const Evento = ({ evento }) => {
 
 
   return (
-    <div className="booking-card">
-      <div>
-      <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
-          {evento.image ? <img src={evento.image} alt={evento.title} /> : <img src="https://metropoliabierta.elespanol.com/uploads/s1/36/81/72/audience-band-celebration-1190298_9_1200x480.jpeg" alt= "Imagen nula" />}
-          
-        </Link>
-      </div>
-      
-      <div>
+    <div className="card">
+      <div className="border-card">
+        <div className="div-image">
         <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
-          <h1>{evento.title}</h1>
-        </Link>
-        <h2>{evento.subtitle}</h2>
-        <p>{evento.content}</p>
-        <p>{evento.user_creator}</p>
-        <p>{evento.site}</p>
-        <p>{fechaStart}</p>
-        <p>{fechaEnd}</p>
-        <p>{evento.genre}</p>
-        {evento.price == 0 ? <p>GRATUITO</p> : <p>{evento.price} €</p>}
+            {evento.image ? <img src={evento.image} alt={evento.title} /> : <img src="https://metropoliabierta.elespanol.com/uploads/s1/36/81/72/audience-band-celebration-1190298_9_1200x480.jpeg" alt= "Imagen nula" />}
+            
+          </Link>
+        </div>
+        
+        <div className="div">
+          <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
+            <h1>{evento.title}</h1>
+          </Link>
+          <h2>{evento.subtitle}</h2>
+          <p>{evento.content}</p>
+
+        </div>
+        <div className="div2">
+          {evento.user_creator && <p>{evento.user_creator}</p>}
+          {evento.site && <p>{evento.site}</p>}
+          {fechaStart && <p>{fechaStart} {fechaEnd && `- ${fechaEnd}`}</p>}
+          {evento.genre && <p>{evento.genre}</p>}
+          {evento.price == 0 ? <p>GRATUITO</p> : evento.price && <p>{evento.price} €</p>}
+        </div>
       </div>
     </div>
   );
