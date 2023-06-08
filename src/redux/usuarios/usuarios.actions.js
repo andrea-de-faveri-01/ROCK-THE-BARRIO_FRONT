@@ -3,7 +3,7 @@ import store from "../store";
 
 const { dispatch } = store;
 
-const login = async (datos, navigate) => {
+const login = ()=> async (datos, navigate) => {
     dispatch({ type: "LOADING_LOGIN" });
 
 API.post("/usuario/login", datos)
