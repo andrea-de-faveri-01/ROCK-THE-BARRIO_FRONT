@@ -7,14 +7,15 @@ const INITIAL_STATE = {
 
 export const usuariosReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "LOADING":
+    case "LOADING_LOGIN":
       return { ...state, loading: true };
     case "LOGIN":
       return {
         ...state,
         loading: false,
         user: { ...action.contenido.user },
-        token: { ...action.contenido.token },
+        token: action.contenido.token ,
+        error:null,
       };
     case "ERROR":
       return {
@@ -22,7 +23,7 @@ export const usuariosReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         user: null,
         token: null,
-        error: action.contenido,
+        error: action.contenido.message,
       };
     default:
       return state;
