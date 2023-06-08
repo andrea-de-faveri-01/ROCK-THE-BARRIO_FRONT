@@ -12,16 +12,23 @@ const Evento = ({ evento }) => {
 
 
   return (
-    <div>
+    <div className="booking-card">
       <div>
-        <Link to={{ pathname: `/${evento._id}`, state: { evento } }}><h1>{evento.title}</h1></Link>
-        <p>{evento.subtitle}</p>
+      <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
+          <img src={evento.image} alt={evento.title} />
+        </Link>
+      </div>
+      
+      <div>
+        <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
+          <h1>{evento.title}</h1>
+        </Link>
+        <h2>{evento.subtitle}</h2>
         <p>{evento.content}</p>
         <p>{evento.user_creator}</p>
         <p>{evento.site}</p>
         <p>{fechaStart}</p>
         <p>{fechaEnd}</p>
-        <Link to={{ pathname: `/${evento._id}`, state: { evento } }}><img src={evento.image}/></Link>
         <p>{evento.genre}</p>
         <p>{evento.price}</p>
       </div>

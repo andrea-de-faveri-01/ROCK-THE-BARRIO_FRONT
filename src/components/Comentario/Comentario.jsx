@@ -10,7 +10,7 @@ import {
 const Comentario = ({ comentario }) => {
   const dispatch = useDispatch();
 
-  const usuario = useSelector((state) => state.usuarios.user);
+  const {user} = useSelector((state) => state.usuariosReducer);
   const [editMode, setEditMode] = useState(false);
   const [editedTitle, setEditedTitle] = useState(comentario.title);
   const [editedContent, setEditedContent] = useState(comentario.content);
@@ -38,10 +38,10 @@ const Comentario = ({ comentario }) => {
     dispatch(deleteComentario(comentario._id));
   };
 
-  const idUsuarioLogueado = usuario ? usuario._id : null;
+  const idUsuarioLogueado = user ? user._id : null;
   const autorComentario = comentario.user._id;
   const puedeEditarYBorrar =
-    idUsuarioLogueado === autorComentario || usuario.role === 2;
+    idUsuarioLogueado === autorComentario || (user && user.role === 2);
   return (
     <div>
       <h2>COMENTARIO</h2>

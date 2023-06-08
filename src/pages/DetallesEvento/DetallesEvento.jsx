@@ -21,10 +21,7 @@ const DetallesEvento = () => {
 
 
   const comprar = () => {
-    // window.open({evento.url}, 'https://www.ticketmaster.es/');
-    // window.location.href = 'https://www.ticketmaster.es/';
-    // window.location.href = {evento.url};
-    <Link to={{ pathname: `/${evento.url}`}}></Link>
+    window.location.href = evento.url;
   };
 
   const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
