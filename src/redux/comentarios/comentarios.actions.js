@@ -10,7 +10,7 @@ const getAllComentarios =()=> async () => {
   dispatch({ type: "GET_COMENTARIOS", contenido: resultado.data });
 };
 
-const getComentariosByEvent = ()=> async (eventId) => {
+const getComentariosByEvent = async (eventId) => {
   dispatch({ type: "LOADING" });
 
   const resultado = await API.get(`comentario/getbyevent/${eventId}`);
