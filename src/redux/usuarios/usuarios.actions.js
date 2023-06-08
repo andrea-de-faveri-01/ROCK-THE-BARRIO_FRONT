@@ -15,6 +15,7 @@ API.post("/usuario/login", datos)
             token: resultado.data.token,
         },
     });
+    console.log(resultado.data.token);
     localStorage.setItem("token", resultado.data.token);
     navigate("/");
 })
@@ -24,4 +25,9 @@ API.post("/usuario/login", datos)
 
 };
 
-export { login };
+const logout = () => {
+  localStorage.removeItem("token");
+  dispatch({ type: "LOGOUT" });
+};
+
+export { login, logout };

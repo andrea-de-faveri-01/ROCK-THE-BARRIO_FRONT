@@ -45,8 +45,7 @@ const DetallesEvento = () => {
             {fechaEnd && <h3>{fechaEnd}</h3>}
             {evento.genre && <h3>{evento.genre}</h3>}
             <p>{evento.content}</p>
-            <Button text="Comprar" type="medium" onClick={comprar}/>
-            <h1>{evento._id}</h1>        
+            <Button text="Comprar" type="medium" onClick={comprar}/>       
       </div>
       {evento ? <ComentariosList eventId={evento._id} /> : null}
       </>
