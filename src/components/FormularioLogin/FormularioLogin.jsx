@@ -46,13 +46,19 @@ import { useForm } from "react-hook-form";
 import "./FormularioLogin.css";
 import { login } from "../../redux/usuarios/usuarios.actions";
 import Button from "../Button/Button";
+import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const FormularioLogin = () => {
   const { register, handleSubmit } = useForm();
 
+  const { error } = useSelector(state => state.usuariosReducer);
+
+  const navigate = useNavigate();
+
   return (
     <div>
-      <form onSubmit={handleSubmit(login)}>
+      <form onSubmit={handleSubmit((datos) => login(datos, navigate))}>
         <div>
           <label>username</label>
           <input {...register("username")} />
@@ -62,6 +68,7 @@ const FormularioLogin = () => {
           <input {...register("password")} type="password" />
         </div>
         <Button text="Login" type="large" />
+        {error && <p>{error}</p>}
       </form>
     </div>
   );
