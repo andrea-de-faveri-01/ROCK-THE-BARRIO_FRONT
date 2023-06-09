@@ -8,9 +8,16 @@ import { usuariosReducer } from "../../redux/usuarios/usuarios.reducer";
 
 const Navbar = () => {
   let { user } = useSelector((state) => state.usuariosReducer);
-
+console.log(user);
   return (
     <div>
+      {user && user.role === 2 && (
+        <Link to="/crear-evento">
+          <span>
+            <Button text="Crear Evento" type="medium" />
+          </span>
+        </Link>
+      )}
       {user ? (
         <>
           <h3>Hola {user.username}</h3>

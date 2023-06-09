@@ -1,9 +1,142 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { addEvento } from "../../redux/eventos/eventos.actions";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { v4 as uuidv4 } from "uuid";
+
+
+
+const cloudinaryCloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+const cloudinaryApiKey = import.meta.env.VITE_CLOUDINARY_API_KEY;
+const cloudinaryApiSecret = import.meta.env.VITE_CLOUDINARY_API_SECRET;
+
+const cloudinary = new Cloudinary({
+  cloud_name: cloudinaryCloudName,
+  api_key: cloudinaryApiKey,
+  api_secret: cloudinaryApiSecret,
+});
 
 const CrearEvento = () => {
-  return (
-    <div>CrearEvento</div>
-  )
-}
+  const {user}=useSelector((state)=>state.usuariosReducer)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const dispatch = useDispatch();
+  const [imageFile, setImageFile] = useState(null);
 
-export default CrearEvento
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+
+  const uploadImage = async () => {
+    if (!imageFile) return null;
+
+    const formData = new FormData();
+    formData.append("file", imageFile);
+    formData.append("folder", "rockthebarrio");
+    formData.append("public_id", `${uuidv4()}_${imageFile.name}`);
+
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${
+          cloudinaryCloudName
+        }/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        return data.secure_url;
+      } else {
+        throw new Error("Error al cargar la imagen en Cloudinary.");
+      }
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  };
+
+  const onSubmit = async (data) => {
+    const imageUrl = await uploadImage();
+
+    const eventoData = {
+      title: data.titulo,
+      content: data.contenido,
+      subtitle: data.subtitle,
+      site: data.site,
+      price: data.price,
+      date_start: data.date_start,
+      date_end: data.date_end,
+      genre: data.genre,
+      user_creator: user._id,
+      url: imageUrl,
+      image: data.image,
+    };
+    dispatch(addEvento(eventoData));
+    reset();
+  };
+
+  return (
+    <div>
+      <h2>Crear Evento</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>Título</label>
+          <input {...register("title", { required: true })} />
+          {errors.title && <span>Título es requerido</span>}
+        </div>
+        <div>
+          <label>Artista/s</label>
+          <input {...register("subtitle", { required: true })} />
+          {errors.subtitle && <span>Subtítulo es requerido</span>}
+        </div>
+        <div>
+          <label>Información</label>
+          <textarea {...register("content", { required: true })} />
+          {errors.content && <span>Contenido es requerido</span>}
+        </div>
+
+        <div>
+          <label>Lugar</label>
+          <input {...register("site", { required: true })} />
+          {errors.site && <span>Sitio es requerido</span>}
+        </div>
+        <div>
+          <label>Precio</label>
+          <input {...register("price", { required: true })} />
+          {errors.price && <span>Precio es requerido</span>}
+        </div>
+        <div>
+          <label>Fecha de Inicio</label>
+          <input type="date" {...register("date_start", { required: true })} />
+          {errors.date_start && <span>Fecha de Inicio es requerida</span>}
+        </div>
+        <div>
+          <label>Fecha de Fin</label>
+          <input type="date" {...register("date_end")} />
+        </div>
+        <div>
+          <label>URL</label>
+          <input {...register("url")} />
+        </div>
+        <div>
+          <label>Imagen</label>
+          <input type="file" onChange={handleImageChange} />
+        </div>
+        <div>
+          <label>Género</label>
+          <input {...register("genre")} />
+        </div>
+        <button type="submit">Crear Evento</button>
+      </form>
+    </div>
+  );
+};
+
+export default CrearEvento;

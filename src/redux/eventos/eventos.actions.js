@@ -19,4 +19,16 @@ const getEventoById = async (id) => {
   dispatch({ type: "GET_EVENTO", contenido: resultado.data });
 };
 
-export { getAllEventos, getEventoById };
+const addEvento = async (eventoData) => {
+    dispatch({ type: "LOADING" });
+  
+    try {
+      const resultado = await API.post("/evento", eventoData);
+  
+      dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+    } catch (error) {
+      dispatch({ type: "ERROR", contenido: error.message });
+    }
+  };
+
+export { getAllEventos, getEventoById, addEvento };
