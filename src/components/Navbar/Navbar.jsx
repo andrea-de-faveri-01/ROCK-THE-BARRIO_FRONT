@@ -6,18 +6,9 @@ import { logout } from "../../redux/usuarios/usuarios.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { usuariosReducer } from "../../redux/usuarios/usuarios.reducer";
 
-
 const Navbar = () => {
-  const storedToken = localStorage.getItem("token");
-  const storedUser = localStorage.getItem("user");
-
   let { user } = useSelector((state) => state.usuariosReducer);
-  
-  if (storedToken && storedUser) {
-    user = JSON.parse(storedUser);
-  }
-  
-  console.log(user);
+
   return (
     <div>
       {user ? (
