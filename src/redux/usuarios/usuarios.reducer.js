@@ -9,6 +9,10 @@ export const usuariosReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "LOADING_LOGIN":
       return { ...state, loading: true };
+
+   case "SET_USER":
+      return {...state, user: action.contenido};
+
     case "LOGIN":
       return {
         ...state,
@@ -26,7 +30,9 @@ export const usuariosReducer = (state = INITIAL_STATE, action) => {
         error: action.contenido.message,
       };
       case "LOGOUT": 
-      return {...state, user: null, token: null}
+      return {...state, user: null, token: null};
+
+      
     default:
       return state;
   }

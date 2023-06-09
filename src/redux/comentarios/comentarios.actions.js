@@ -10,6 +10,17 @@ const getAllComentarios =()=> async () => {
   dispatch({ type: "GET_COMENTARIOS", contenido: resultado.data });
 };
 
+const addComentario = (comentarioData) => async (dispatch) => {
+  dispatch({ type: "LOADING" });
+  try {
+    const resultado = await API.post("/comentario", comentarioData);
+
+    dispatch({ type: "ADD_COMENTARIO", contenido: resultado.data });
+  } catch (error) {
+    dispatch({ type: "ERROR", contenido: error.message });
+  }
+};
+
 const getComentariosByEvent = async (eventId) => {
   dispatch({ type: "LOADING" });
 
@@ -31,7 +42,7 @@ const editComentario = ()=> async (idComentario, comentarioData) => {
 
     dispatch({ type: "EDIT_COMENTARIO", contenido: resultado.data });
   } catch (error) {
-    dispatch({ type: "ERROR", payload: error.message });
+    dispatch({ type: "ERROR", contenido: error.message });
   }
 };
 
@@ -42,11 +53,12 @@ const deleteComentario = ()=> async (idComentario) => {
 
     dispatch({ type: "DELETE_COMENTARIO", contenido: resultado.data });
   } catch (error) {
-    dispatch({ type: "ERROR", payload: error.message });
+    dispatch({ type: "ERROR", contenido: error.message });
   }
 };
 
 export {
+  addComentario,
   getAllComentarios,
   getComentariosByEvent,
   editComentario,

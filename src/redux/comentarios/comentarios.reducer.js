@@ -9,6 +9,9 @@ export const comentariosReducer = (state = INITIAL_STATE, action) => {
 
     case "GET_COMENTARIOSBYEVENTO":
       return { ...state, loading: false, comentarios: action.contenido };
+    
+    case "ADD_COMENTARIO":
+      return {...state, loading: false, comentarios: [...state.comentarios, action.contenido]}
 
     case "EDIT_COMENTARIO":
       return {
@@ -34,7 +37,7 @@ export const comentariosReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: action.contenido,
       };
     default:
       return state;

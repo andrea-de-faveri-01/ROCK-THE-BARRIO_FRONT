@@ -29,9 +29,16 @@ const login = async (datos, navigate) => {
   
 };
 
+const setUser = (userData) => {
+  return{
+    type: "SET_USER",
+    contenido: userData,
+  }
+}
+  
 const logout = () => {
   localStorage.removeItem("token");
   dispatch({ type: "LOGOUT" });
 };
 
-export { login, logout };
+export { login, logout, setUser };
