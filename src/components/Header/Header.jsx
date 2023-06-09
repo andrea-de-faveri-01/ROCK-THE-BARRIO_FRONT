@@ -15,9 +15,6 @@ const Header = () => {
             <div className='navbar'>
               <Navbar/>
             </div>
-
-
-
     </div>
   )
 }

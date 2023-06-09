@@ -49,8 +49,9 @@
   border-color: #007bff;
   display: flex;
   justify-content: start;
-  width: 100%;
+  width: 90%;
   height: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .div-image {
@@ -82,7 +83,50 @@
   margin-right: 3%;
 }
 
-@media (max-width: 768px) {
+/* Pantallas muy pequeñas */
+@media (max-width: 575px) {
+  .card h1 {
+    font-size: 30px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .div-image {
+    flex-basis: 40%;
+  }
+
+  .div, .div2 {
+    flex-basis: 60%;
+  }
+}
+
+/* Pantallas pequeñas */
+@media (min-width: 576px) and (max-width: 719px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .border-card {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .div-image {
+    flex-basis: 100%;
+    margin: 0;
+  }
+  
+  .div, .div2 {
+    flex-basis: 100%;
+    margin: 1% 0;
+  }
+}
+
+/* Pantallas medianas */
+@media (min-width: 720px) and (max-width: 991px) {
   .card {
     flex-direction: column;
     align-items: center;
@@ -106,7 +150,7 @@
 
 
 /* Pantallas grandes */
-@media (min-width: 769px) and (max-width: 992px) {
+@media (min-width: 992px) and (max-width: 1139px) {
   .card h1 {
     font-size: 36px;
   }
@@ -115,7 +159,6 @@
     font-size: 18px;
   }
 }
-
 /* Pantallas extra grandes */
 @media (min-width: 993px) {
   .card h1 {
