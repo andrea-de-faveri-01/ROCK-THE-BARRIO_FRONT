@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Evento = ({ evento }) => {
 
-  const maxLength = 100; // Número máximo de caracteres antes de truncar el contenido del texto
+  const maxLength = 75; // Número máximo de caracteres antes de truncar el contenido del texto
 
   const truncatedContent = evento.content.length > maxLength
     ? evento.content.slice(0, maxLength) + '...'
@@ -39,7 +39,7 @@ const Evento = ({ evento }) => {
           {evento.site && <p>{evento.site}</p>}
           {fechaStart && <p>{fechaStart} {fechaEnd && `- ${fechaEnd}`}</p>}
           {evento.genre && <p>{evento.genre}</p>}
-          {evento.price == 0 ? <p>GRATUITO</p> : evento.price && <p>{evento.price} €</p>}
+          {evento.price == 0 ? <p className="gratuito">GRATUITO</p> : evento.price && <p>{evento.price} €</p>}
         </div>
       </div>
     </div>

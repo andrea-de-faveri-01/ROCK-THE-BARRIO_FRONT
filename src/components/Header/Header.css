@@ -48,7 +48,7 @@
         display: flex;
         justify-content: space-around;
       height: auto;
-      height: 150px;
+      height: 160px;
     }
   
     .title {
@@ -70,7 +70,7 @@
     .header {
         flex-direction: column;
         height: auto;
-        height: 150px;
+        height: 160px;
       }
     
       .title {
@@ -78,7 +78,7 @@
         text-align: center;
       }
     .navbar{
-        margin-bottom: 80px
+        margin-bottom: 80px;
     }   
     .title-font{
         font-size: 50px;
@@ -93,7 +93,7 @@
     .header{
         display: flex;
         justify-content: space-between;
-        height: 120px;
+        height: 160px;
     }
     .title-font{
         font-size: 50px;
@@ -110,7 +110,7 @@
     .header{
         display: flex;
         justify-content: space-between;
-        height: 120px;
+        height: 160px;
     }
     .title-font{
         font-size: 65px;

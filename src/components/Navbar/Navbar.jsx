@@ -11,21 +11,25 @@ const Navbar = () => {
 console.log(user);
   return (
     <div>
-      {user && user.role === 2 && (
-        <Link to="/crear-evento">
-          <span>
-            <Button text="Crear Evento" type="medium" />
-          </span>
-        </Link>
-      )}
       {user ? (
         <div className="disp">
           <h3 className="h3">Hola {user.username}</h3>
-          <Link to="/">
+          <div className="div-boton">
+            <div>
+            {user && user.role === 2 && (
+          <Link to="/crear-evento">
             <span>
-              <Button text="Salir" type="medium" onClick={logout}/>
+              <Button text="Crear Evento" type="medium" />
             </span>
           </Link>
+        )}
+            </div>
+            <Link to="/">
+              <span>
+                <Button text="Salir" type="medium" onClick={logout}/>
+              </span>
+            </Link>
+          </div>
         </div>
       ) : (
         <>
