@@ -7,7 +7,7 @@ const Home = () => {
  
   return (
     <div>
-
+      
     <EventosList/>
 
     </div>
