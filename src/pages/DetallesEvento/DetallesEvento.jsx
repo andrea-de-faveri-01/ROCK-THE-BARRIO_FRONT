@@ -37,8 +37,8 @@ const dispatch=useDispatch();
     
     <div>
     {(loading && !evento)  && (
-    <img src="/assets/music.gif"/>
-   )}
+    <div  className='div-img'><img src="/assets/music.gif"/></div>
+    )}
       <h2>DETALLES EVENTO</h2>
       {evento ? (
         <>
