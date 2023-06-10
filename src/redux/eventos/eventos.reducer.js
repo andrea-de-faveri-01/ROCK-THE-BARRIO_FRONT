@@ -11,6 +11,8 @@ export const eventosReducer = (state = INITIAL_STATE, action) => {
       return { ...state, loading: false, eventos: [...action.contenido] };
     case "GET_EVENTO":
       return { ...state, loading: false, evento: action.contenido };
+    case "ADD_EVENTO":
+      return { ...state, eventos: [...state.eventos, action.contenido] };
     case "CLEAR_EVENTO":
       return { ...state, evento: null };
       break;

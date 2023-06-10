@@ -3,7 +3,7 @@ import store from "../store.js";
 
 const { dispatch } = store;
 
-const getAllEventos = async () => {
+const getAllEventos = ()=> async () => {
   dispatch({ type: "LOADING" });
 
   const resultado = await API.get("/evento");
@@ -11,7 +11,7 @@ const getAllEventos = async () => {
   dispatch({ type: "GET_EVENTOS", contenido: resultado.data });
 };
 
-const getEventoById = async (id) => {
+const getEventoById = (id)=> async () => {
   dispatch({ type: "CLEAR_EVENTO" });
   dispatch({ type: "LOADING" });
 
@@ -19,4 +19,16 @@ const getEventoById = async (id) => {
   dispatch({ type: "GET_EVENTO", contenido: resultado.data });
 };
 
-export { getAllEventos, getEventoById };
+const addEvento = (eventoData)=> async () => {
+    dispatch({ type: "LOADING" });
+  
+    try {
+      const resultado = await API.post("/evento", eventoData);
+  
+      dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+    } catch (error) {
+      dispatch({ type: "ERROR", contenido: error.message });
+    }
+  };
+
+export { getAllEventos, getEventoById, addEvento };

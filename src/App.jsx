@@ -6,39 +6,35 @@ import DetallesEvento from "./pages/DetallesEvento/DetallesEvento";
 import CrearEvento from "./pages/CrearEvento/CrearEvento";
 import DateDeAlta from "./pages/DateDeAlta/DateDeAlta";
 import Header from "./components/Header/Header";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { setUser } from "./redux/usuarios/usuarios.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { Component, useEffect, useState } from "react";
+import { checkSesion, setUser } from "./redux/usuarios/usuarios.actions";
 
 function App() {
+  const {user} = useSelector((state) => state.usuariosReducer);
+  const [sesionVerificada, setSesionVerificada] = useState(false);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    console.log(storedUser);
-    if (storedUser) {
-      dispatch(setUser(JSON.parse(storedUser)));
-      
-    }
-  }, [dispatch]);
-
- 
-
+  useEffect(()=>{
+    dispatch(checkSesion());
+    setSesionVerificada(true);
+  }, []);
   return (
     <>
     
     <Header/>
+    {sesionVerificada ? 
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/:id' element={<DetallesEvento/>}/>
-        <Route path='/date-de-alta' element={<DateDeAlta/>}/>
-        <Route path='/crear-evento' element={<CrearEvento/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/date-de-alta' element={!user ? <DateDeAlta/> : <Navigate to = "/" replace={true}/>}/>
+        <Route path='/crear-evento' element={user && user.role === 2 ? <CrearEvento/>:<Navigate to = "/" replace={true}/>}/>
+        <Route path='/login' element={!user ? <Login/> : <Navigate to = "/" replace={true}/> }/>
         <Route path='*' element={<Home/>}/>
       </Routes>
-
+      :
+      ""}
     </>
   );
 }
