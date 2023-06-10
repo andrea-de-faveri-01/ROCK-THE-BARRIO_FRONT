@@ -19,14 +19,14 @@ console.log(user);
         </Link>
       )}
       {user ? (
-        <>
-          <h3>Hola {user.username}</h3>
+        <div className="disp">
+          <h3 className="h3">Hola {user.username}</h3>
           <Link to="/">
             <span>
-              <Button text="Salir" type="medium" onClick={logout} />
+              <Button text="Salir" type="medium" onClick={logout}/>
             </span>
           </Link>
-        </>
+        </div>
       ) : (
         <>
           <Link to="/login">
