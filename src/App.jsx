@@ -1,5 +1,3 @@
-
-
 import "./App.css";
 import Home from "./pages/Home/Home";
 import DetallesEvento from "./pages/DetallesEvento/DetallesEvento";
@@ -13,6 +11,7 @@ import { Component, useEffect, useState } from "react";
 import { checkSesion, setUser } from "./redux/usuarios/usuarios.actions";
 
 function App() {
+
   const {user} = useSelector((state) => state.usuariosReducer);
   const [sesionVerificada, setSesionVerificada] = useState(false);
   const dispatch = useDispatch();
@@ -37,6 +36,7 @@ function App() {
       ""}
             
     </div>
+
     </>
   );
 }
