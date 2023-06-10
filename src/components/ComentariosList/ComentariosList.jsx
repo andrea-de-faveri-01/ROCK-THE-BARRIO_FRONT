@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import Comentario from '../Comentario/Comentario';
 
 
-const ComentariosList = ({eventId}) => {
+const ComentariosList = ({eventoId}) => {
 
     useEffect(() => {
-      getComentariosByEvent(eventId);
+      getComentariosByEvent(eventoId);
        }, [])
       
        const { loading, comentarios } = useSelector((reducer) => reducer.comentariosReducer);

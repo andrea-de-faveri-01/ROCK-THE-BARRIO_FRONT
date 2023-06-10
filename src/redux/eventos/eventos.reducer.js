@@ -18,7 +18,7 @@ export const eventosReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: action.contenido,
       };
     default:
       return state;
