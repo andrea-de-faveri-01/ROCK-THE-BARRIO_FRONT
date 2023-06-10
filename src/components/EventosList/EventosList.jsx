@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { getAllEventos } from '../../redux/eventos/eventos.actions';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Evento from '../Evento/Evento';
 
+
 const EventosList = () => {
+  const dispatch=useDispatch();
 
     useEffect(() => {
-        getAllEventos();
+        dispatch(getAllEventos());
        }, [])
       
        const { loading, eventos } = useSelector((reducer) => reducer.eventosReducer);

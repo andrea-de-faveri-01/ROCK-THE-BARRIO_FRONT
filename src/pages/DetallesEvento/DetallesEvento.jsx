@@ -2,23 +2,24 @@ import React, { useEffect } from "react";
 import "./DetallesEvento.css";
 import ComentariosList from "../../components/ComentariosList/ComentariosList";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getEventoById } from "../../redux/eventos/eventos.actions";
 import Button from "../../components/Button/Button";
 import NuevoComentario from "../../components/NuevoComentario/NuevoComentario";
 
 
 
+
 const DetallesEvento = () => {
 
-
+const dispatch=useDispatch();
   const { id } = useParams();
 
   const { loading, evento } = useSelector((reducer) => reducer.eventosReducer);
   const {user}=useSelector((reducer)=>reducer.usuariosReducer)
   
   useEffect(() => {
-    getEventoById(id)
+    dispatch(getEventoById( id))
   }, [id]);
 
   

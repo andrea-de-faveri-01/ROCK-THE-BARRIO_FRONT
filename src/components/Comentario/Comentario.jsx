@@ -14,7 +14,7 @@ const Comentario = ({ comentario }) => {
   const [editMode, setEditMode] = useState(false);
   const [editedTitle, setEditedTitle] = useState(comentario.title);
   const [editedContent, setEditedContent] = useState(comentario.content);
-  const [editedValue, setEditedValue] = useState(comentario.value);
+  const [editedValue, setEditedValue] = useState(comentario.value??1);
   const handleEdit = () => {
     if (editMode) {
       const comentarioData = {
@@ -25,9 +25,9 @@ const Comentario = ({ comentario }) => {
       
       dispatch(editComentario(comentario._id, comentarioData));
       
-      setEditedTitle(comentarioData.title);
-      setEditedContent(comentarioData.content);
-      setEditedValue(comentarioData.value);
+      // setEditedTitle(comentarioData.title);
+      // setEditedContent(comentarioData.content);
+      // setEditedValue(comentarioData.value);
       setEditMode(false);
     } else {
       setEditMode(true);

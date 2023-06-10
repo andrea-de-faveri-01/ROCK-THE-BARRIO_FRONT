@@ -3,7 +3,7 @@ import store from "../store";
 
 const { dispatch } = store;
 
-const login = async (datos, navigate) => {
+const login = (datos,navigate)=> async () => {
   dispatch({ type: "LOADING_LOGIN" });
  
 

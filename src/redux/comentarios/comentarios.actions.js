@@ -29,7 +29,7 @@ const getComentariosByEvent = async (eventId) => {
   dispatch({ type: "GET_COMENTARIOSBYEVENTO", contenido: resultado.data });
 };
 
-const editComentario = ()=> async (idComentario, comentarioData) => {
+const editComentario = (idComentario, comentarioData)=> async () => {
   dispatch({ type: "LOADING" });
   try {
     
@@ -46,7 +46,7 @@ const editComentario = ()=> async (idComentario, comentarioData) => {
   }
 };
 
-const deleteComentario = ()=> async (idComentario) => {
+const deleteComentario =  (idComentario)=> async () => {
   dispatch({ type: "LOADING" });
   try {
     const resultado = await API.delete(`comentario/${idComentario}`);

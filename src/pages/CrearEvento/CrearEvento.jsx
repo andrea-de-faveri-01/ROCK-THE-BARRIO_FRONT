@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addEvento } from "../../redux/eventos/eventos.actions";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { v4 as uuidv4 } from "uuid";
-
-
+import { useNavigate } from 'react-router-dom';
 
 const cloudinaryCloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
 const cloudinaryApiKey = import.meta.env.VITE_CLOUDINARY_API_KEY;
@@ -18,7 +17,8 @@ const cloudinary = new Cloudinary({
 });
 
 const CrearEvento = () => {
-  const {user}=useSelector((state)=>state.usuariosReducer)
+  const { user } = useSelector((state) => state.usuariosReducer);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -41,9 +41,7 @@ const CrearEvento = () => {
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${
-          cloudinaryCloudName
-        }/upload`,
+        `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/upload`,
         {
           method: "POST",
           body: formData,
@@ -66,8 +64,8 @@ const CrearEvento = () => {
     const imageUrl = await uploadImage();
 
     const eventoData = {
-      title: data.titulo,
-      content: data.contenido,
+      title: data.title,
+      content: data.content,
       subtitle: data.subtitle,
       site: data.site,
       price: data.price,
@@ -78,8 +76,9 @@ const CrearEvento = () => {
       url: imageUrl,
       image: data.image,
     };
-    dispatch(addEvento(eventoData));
-    reset();
+console.log(eventoData);
+    dispatch(addEvento( eventoData));
+    navigate("/");
   };
 
   return (
