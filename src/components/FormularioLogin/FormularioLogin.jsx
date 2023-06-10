@@ -22,11 +22,11 @@ const FormularioLogin = () => {
       <form onSubmit={handleSubmit((datos) => dispatch(login(datos, navigate)))}>
         <div className="div-input">
           <label>
-          <input {...register("username")} placeholder="Usuario"/></label>
+          <input {...register("username")} placeholder="Usuario"className="input"/></label>
         </div>
         <div className="div-input">
           <label>
-          <input {...register("password")} type="password" placeholder="Contraseña"/></label>
+          <input {...register("password")} type="password" placeholder="Contraseña"className="input"/></label>
         </div>
         <div className="margin-boton">
         <Button text="Login" type="large"/>
