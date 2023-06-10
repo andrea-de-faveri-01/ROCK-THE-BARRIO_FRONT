@@ -5,11 +5,6 @@ import { Link } from "react-router-dom";
 
 const Evento = ({ evento }) => {
 
-  const maxLength = 100; // Número máximo de caracteres antes de truncar el contenido del texto
-
-  const truncatedContent = evento.content.length > maxLength
-    ? evento.content.slice(0, maxLength) + '...'
-    : evento.content;
 
   const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
   const fechaStart = evento.date_start ? new Date(evento.date_start).toLocaleDateString('es-ES', opciones) : '';
@@ -31,7 +26,7 @@ const Evento = ({ evento }) => {
             <h1>{evento.title}</h1>
           </Link>
           <h2>{evento.subtitle}</h2>
-          <p>{truncatedContent}</p>
+          <p>{evento.content}</p>
 
         </div>
         <div className="div2">

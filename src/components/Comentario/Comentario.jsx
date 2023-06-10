@@ -22,13 +22,11 @@ const Comentario = ({ comentario }) => {
         content: editedContent,
         value: editedValue,
       };
-      
       dispatch(editComentario(comentario._id, comentarioData));
-      
+      setEditMode(false);
       setEditedTitle(comentarioData.title);
       setEditedContent(comentarioData.content);
       setEditedValue(comentarioData.value);
-      setEditMode(false);
     } else {
       setEditMode(true);
     }
@@ -39,13 +37,7 @@ const Comentario = ({ comentario }) => {
 
     dispatch(deleteComentario(comentario._id));
   };
-  const handleCancelEdit = () => {
-    setEditMode(false);
-    setEditedTitle(comentario.title);
-    setEditedContent(comentario.content);
-    setEditedValue(comentario.value);
-  
-  }
+
   const idUsuarioLogueado = user ? user._id : null;
   const autorComentario = comentario.user._id;
   const puedeEditarYBorrar =
@@ -54,14 +46,14 @@ const Comentario = ({ comentario }) => {
     <div>
       <h2>COMENTARIO</h2>
       <div>
-       
+        {/* <p>{comentario._id}</p> */}
         <p>{comentario.user.username}</p>
         {comentario.user.avatar ? (
           <img src={comentario.user.avatar} alt="user avatar" />
         ) : (
           ""
         )}
-        
+        {/* <p>{comentario.event}</p> */}
         {editMode ? (
           <>
             <input

@@ -5,23 +5,3 @@
 .right{
     margin-right: 15px;
 }
-.disp{
-    display: flex;
-    align-items: center;
-}
-
-.h3{
-    margin-right: 15px;
-    font-size: 30px;}
-
-@media (min-width: 1px) and (max-width: 469.98px) {
-    .disp{
-        display: flex;
-        flex-direction: column;
-    }
-}
-    @media (min-width: 470px) and (max-width: 852.98px) {
-        .h3{
-         margin-top: 10px;
-        }
-}

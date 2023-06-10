@@ -16,7 +16,6 @@
   font-weight: bold;
   margin-bottom: 5px;
   margin-top: 1%;
-  text-align: start;
 }
 
 .card h2{
@@ -82,12 +81,6 @@
   align-items: end;
   margin-right: 3%;
 }
-.truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 
 @media (max-width: 768px) {
   .card {
@@ -105,13 +98,9 @@
     margin: 0;
   }
   
-  .div{
+  .div, .div2 {
     flex-basis: 100%;
-    margin-top: 10%;
-  } 
-  .div2 {
-    flex-basis: 100%;
-    margin-top: 5%;
+    margin: 1% 0;
   }
 }
 
@@ -124,18 +113,16 @@
 
   .card p {
     font-size: 18px;
-    text-align: left;
   }
 }
 
 /* Pantallas extra grandes */
 @media (min-width: 993px) {
   .card h1 {
-    font-size: 35px;
+    font-size: 40px;
   }
 
   .card p {
     font-size: 20px;
-    text-align: left;
   }
 }

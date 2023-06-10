@@ -8,27 +8,10 @@ import DateDeAlta from "./pages/DateDeAlta/DateDeAlta";
 import Header from "./components/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { setUser } from "./redux/usuarios/usuarios.actions";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    console.log(storedUser);
-    if (storedUser) {
-      dispatch(setUser(JSON.parse(storedUser)));
-      
-    }
-  }, [dispatch]);
-
- 
-
   return (
     <>
-    
     <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>

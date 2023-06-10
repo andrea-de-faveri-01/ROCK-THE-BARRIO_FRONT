@@ -5,8 +5,6 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getEventoById } from "../../redux/eventos/eventos.actions";
 import Button from "../../components/Button/Button";
-import NuevoComentario from "../../components/NuevoComentario/NuevoComentario";
-
 
 
 const DetallesEvento = () => {
@@ -15,18 +13,17 @@ const DetallesEvento = () => {
   const { id } = useParams();
 
   const { loading, evento } = useSelector((reducer) => reducer.eventosReducer);
-  const {user}=useSelector((reducer)=>reducer.usuariosReducer)
-  
+
   useEffect(() => {
     getEventoById(id)
   }, [id]);
 
-  
+
 
   const comprar = () => {
     window.location.href = evento.url;
   };
-  console.log(user);
+
   const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
   const fechaStart = evento?.date_start ? new Date(evento.date_start).toLocaleDateString('es-ES', opciones) : '';
   const fechaEnd = evento?.date_end ? new Date(evento.date_end).toLocaleDateString('es-ES', opciones) : '';
@@ -35,9 +32,6 @@ const DetallesEvento = () => {
   return (
     
     <div>
-    {(loading && !evento)  && (
-    <img src="/assets/music.gif"/>
-   )}
       <h2>DETALLES EVENTO</h2>
       {evento ? (
         <>
@@ -51,11 +45,10 @@ const DetallesEvento = () => {
             {fechaEnd && <h3>{fechaEnd}</h3>}
             {evento.genre && <h3>{evento.genre}</h3>}
             <p>{evento.content}</p>
-            <Button text="Comprar" type="medium" onClick={comprar}/>       
+            <Button text="Comprar" type="medium" onClick={comprar}/>
+            <h1>{evento._id}</h1>        
       </div>
-      {user && <NuevoComentario eventoId={evento._id} user={user} />}
-      {evento ? <ComentariosList eventoId={evento._id} /> : null}
-
+      {evento ? <ComentariosList eventId={evento._id} /> : null}
       </>
       ) : 'No hay eventos que mostrar'}
     </div>
