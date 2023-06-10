@@ -6,6 +6,15 @@ import {
   deleteComentario,
   editComentario,
 } from "../../redux/comentarios/comentarios.actions";
+import { Avatar } from "@fluentui/react-components";
+import { FluentProvider, teamsLightTheme } from '@fluentui/react-components';
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+} from "@fluentui/react-components";
+import { Star28Filled } from "@fluentui/react-icons";
 
 const Comentario = ({ comentario }) => {
   const dispatch = useDispatch();
@@ -50,17 +59,44 @@ const Comentario = ({ comentario }) => {
   const autorComentario = comentario.user._id;
   const puedeEditarYBorrar =
     idUsuarioLogueado === autorComentario || (user && user.role === 2);
+
+    const renderStars = (value) => {
+      const stars = [];
+      for (let i = 1; i <= 5; i++) {
+        stars.push(
+          <Star28Filled color="yellow"
+            key={i}
+            className={i <= value ? 'star active' : 'star'}
+          />
+        );
+      }
+      return stars;
+    };
+
+
   return (
     <div>
-      <h2>COMENTARIO</h2>
+    <FluentProvider theme={teamsLightTheme}>
       <div>
        
-        <p>{comentario.user.username}</p>
-        {comentario.user.avatar ? (
+        <div>
+        
+        <Avatar 
+        color="colorful"
+        size={64}
+        name={comentario.user.username}
+    image={{
+      src: comentario.user.avatar,
+    }}/>
+    <p>{comentario.user.username}</p>
+    
+    
+    </div>
+        {/* {comentario.user.avatar ? (
           <img src={comentario.user.avatar} alt="user avatar" />
         ) : (
           ""
-        )}
+        )} */}
         
         {editMode ? (
           <>
@@ -82,9 +118,20 @@ const Comentario = ({ comentario }) => {
           </>
         ) : (
           <>
-            <p>{comentario.title}</p>
-            {comentario.value && <p>{comentario.value}</p>}
-            {comentario.content && <p>{comentario.content}</p>}
+          <Accordion collapsible>
+          <AccordionItem value="1">
+          <AccordionHeader>{comentario.title}</AccordionHeader>
+          <AccordionPanel>
+          {comentario.content && <p>{comentario.content}</p>}
+            {comentario.value && (
+            <div>
+            <p>{renderStars(comentario.value)}</p>
+            </div>
+        )}
+            
+            </AccordionPanel>
+            </AccordionItem>
+            </Accordion>
           </>
         )}
         {puedeEditarYBorrar && (
@@ -113,6 +160,7 @@ const Comentario = ({ comentario }) => {
           </>
         )}
       </div>
+      </FluentProvider>
     </div>
   );
 };
