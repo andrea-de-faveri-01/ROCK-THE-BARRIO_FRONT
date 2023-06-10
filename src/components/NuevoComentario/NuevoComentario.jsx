@@ -37,7 +37,7 @@ const NuevoComentario = ({ eventoId, user }) => {
         </div>
         <div className="form-group">
           <label>Valoración</label>
-          <input type="number" {...register("valoracion")} />
+          <input type="number" {...register("valoracion")} min={0} max={5}/>
         </div>
         <Button type="submit" text="Enviar" />
       </form>
