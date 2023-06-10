@@ -5,6 +5,8 @@
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
+    box-shadow: 10px 10px 10px rgba(197, 158, 28, 0.452);
+
   }
   .link:link {
     color: black;

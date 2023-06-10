@@ -3,7 +3,7 @@ import FormularioRegistro from '../../components/FormularioRegistro/FormularioRe
 
 const DateDeAlta = () => {
   return (
-    <div>DateDeAlta
+    <div>
        <FormularioRegistro/>
     </div>
    

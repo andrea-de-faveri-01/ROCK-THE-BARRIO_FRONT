@@ -22,7 +22,7 @@ function App() {
   }, []);
   return (
     <>
-    
+    <div>
     <Header/>
     {sesionVerificada ? 
       <Routes>
@@ -35,6 +35,8 @@ function App() {
       </Routes>
       :
       ""}
+            
+    </div>
     </>
   );
 }
