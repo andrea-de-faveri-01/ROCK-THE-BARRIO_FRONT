@@ -62,7 +62,7 @@ const Comentario = ({ comentario }) => {
 
     const renderStars = (value) => {
       const stars = [];
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= value; i++) {
         stars.push(
           <Star28Filled color="yellow"
             key={i}
