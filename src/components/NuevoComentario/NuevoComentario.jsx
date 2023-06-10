@@ -1,10 +1,10 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import "./NuevoComentario.css";
 
-import Button from '../Button/Button';
-import { addComentario } from '../../redux/comentarios/comentarios.actions';
+import Button from "../Button/Button";
+import { addComentario } from "../../redux/comentarios/comentarios.actions";
 
 const NuevoComentario = ({ eventoId, user }) => {
   const { register, handleSubmit, reset } = useForm();
