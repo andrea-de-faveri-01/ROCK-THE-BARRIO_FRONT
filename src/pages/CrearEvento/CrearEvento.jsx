@@ -2,19 +2,10 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addEvento } from "../../redux/eventos/eventos.actions";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { v4 as uuidv4 } from "uuid";
+
 import { useNavigate } from 'react-router-dom';
+import SubirImagen from "../../components/SubirImagen/SubirImagen";
 
-const cloudinaryCloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-const cloudinaryApiKey = import.meta.env.VITE_CLOUDINARY_API_KEY;
-const cloudinaryApiSecret = import.meta.env.VITE_CLOUDINARY_API_SECRET;
-
-const cloudinary = new Cloudinary({
-  cloud_name: cloudinaryCloudName,
-  api_key: cloudinaryApiKey,
-  api_secret: cloudinaryApiSecret,
-});
 
 const CrearEvento = () => {
   const { user } = useSelector((state) => state.usuariosReducer);
@@ -25,66 +16,15 @@ const CrearEvento = () => {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-  const [imageFile, setImageFile] = useState(null);
+  const [imageFile, setImageFile] = useState();
 
-  const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
-  };
-
-  const uploadImage = async () => {
-    if (!imageFile) return null;
-
-    const formData = new FormData();
-    formData.append("file", imageFile);
-    formData.append("folder", "rockthebarrio");
-    formData.append("public_id", `${uuidv4()}_${imageFile.name}`);
-
-    try {
-      const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        return data.secure_url;
-      } else {
-        throw new Error("Error al cargar la imagen en Cloudinary.");
-      }
-    } catch (error) {
-      console.error(error);
-      return null;
-    }
-  };
-
-  const onSubmit = async (data) => {
-    const imageUrl = await uploadImage();
-
-    const eventoData = {
-      title: data.title,
-      content: data.content,
-      subtitle: data.subtitle,
-      site: data.site,
-      price: data.price,
-      date_start: data.date_start,
-      date_end: data.date_end,
-      genre: data.genre,
-      user_creator: user._id,
-      url: imageUrl,
-      image: data.image,
-    };
-console.log(eventoData);
-    dispatch(addEvento( eventoData));
-    navigate("/");
-  };
+  console.log(user);
+  
 
   return (
     <div>
       <h2>Crear Evento</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit((datos) => dispatch(addEvento(datos, navigate, {user:user._id})))}>
         <div>
           <label>Título</label>
           <input {...register("title", { required: true })} />
@@ -108,7 +48,7 @@ console.log(eventoData);
         </div>
         <div>
           <label>Precio</label>
-          <input {...register("price", { required: true })} />
+          <input type="number" {...register("price", { required: true })} />
           {errors.price && <span>Precio es requerido</span>}
         </div>
         <div>
@@ -126,7 +66,11 @@ console.log(eventoData);
         </div>
         <div>
           <label>Imagen</label>
-          <input type="file" onChange={handleImageChange} />
+          <SubirImagen
+              register={register}
+              funcion={(e) => setImageFile(URL.createObjectURL(e.target.files[0]))}
+            />
+            {imageFile && <img className="imagen" src={imageFile} />}
         </div>
         <div>
           <label>Género</label>

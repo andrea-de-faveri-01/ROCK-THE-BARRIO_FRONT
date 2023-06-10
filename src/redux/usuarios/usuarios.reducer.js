@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  user: null,
+  user: JSON.parse(localStorage.getItem("user")),
   token: null,
   loading: false,
   error: null,
@@ -11,7 +11,8 @@ export const usuariosReducer = (state = INITIAL_STATE, action) => {
       return { ...state, loading: true };
 
    case "SET_USER":
-      return {...state, user: action.contenido};
+      return {...state, 
+        user: action.contenido};
 
     case "LOGIN":
       return {
