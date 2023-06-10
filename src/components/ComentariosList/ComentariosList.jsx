@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { getComentariosByEvent } from '../../redux/comentarios/comentarios.actions';
 import { useSelector } from 'react-redux';
 import Comentario from '../Comentario/Comentario';
-import "./Comentarioslist.css"
+
+
+import "./ComentariosList.css"
 
 
 const ComentariosList = ({eventoId}) => {
@@ -18,7 +20,7 @@ const ComentariosList = ({eventoId}) => {
    <div>
    <div>
    {loading  && (
-    <img src="/assets/loading.gif"/>
+    <div  className='div-img'><img src="/assets/music.gif"/></div>
    )}
    </div>
    <h2>COMENTARIOS DEL EVENTO</h2>

@@ -16,6 +16,23 @@
   background-image:linear-gradient(to bottom, #56b8ff, #fff);
   border: solid black;
 }
+.card {
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: appearCard 0.5s ease-in-out forwards;
+}
+
+@keyframes appearCard {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 .card h1 {
   font-size: 40px;
@@ -31,8 +48,8 @@
 
 .card p {
   font-size: 16px;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-bottom: 2% ;
+  margin-top: 2%;
   text-align: left;
   font-weight: bold;
 }
