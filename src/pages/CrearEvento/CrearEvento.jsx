@@ -5,6 +5,8 @@ import { addEvento } from "../../redux/eventos/eventos.actions";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from 'react-router-dom';
+import Button from "../../components/Button/Button";
+import "./CrearEvento.css"
 
 const cloudinaryCloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
 const cloudinaryApiKey = import.meta.env.VITE_CLOUDINARY_API_KEY;
@@ -82,57 +84,58 @@ console.log(eventoData);
   };
 
   return (
-    <div>
-      <h2>Crear Evento</h2>
+    <div className="card">
+            <h1>Crear Evento</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div classname="div-input">
           <label>Título</label>
           <input {...register("title", { required: true })} />
           {errors.title && <span>Título es requerido</span>}
         </div>
-        <div>
+        <div classname="div-input">
           <label>Artista/s</label>
           <input {...register("subtitle", { required: true })} />
           {errors.subtitle && <span>Subtítulo es requerido</span>}
         </div>
-        <div>
+        <div classname="div-input">
           <label>Información</label>
           <textarea {...register("content", { required: true })} />
           {errors.content && <span>Contenido es requerido</span>}
         </div>
-
-        <div>
+        <div classname="div-input">
           <label>Lugar</label>
           <input {...register("site", { required: true })} />
           {errors.site && <span>Sitio es requerido</span>}
         </div>
-        <div>
+        <div classname="div-input">
           <label>Precio</label>
           <input {...register("price", { required: true })} />
           {errors.price && <span>Precio es requerido</span>}
         </div>
-        <div>
+        <div classname="div-input">
           <label>Fecha de Inicio</label>
           <input type="date" {...register("date_start", { required: true })} />
           {errors.date_start && <span>Fecha de Inicio es requerida</span>}
         </div>
-        <div>
+        <div classname="div-input">
           <label>Fecha de Fin</label>
           <input type="date" {...register("date_end")} />
         </div>
-        <div>
+        <div classname="div-input">
           <label>URL</label>
           <input {...register("url")} />
         </div>
-        <div>
+        <div classname="div-input">
           <label>Imagen</label>
           <input type="file" onChange={handleImageChange} />
         </div>
-        <div>
+        <div classname="div-input">
           <label>Género</label>
           <input {...register("genre")} />
         </div>
-        <button type="submit">Crear Evento</button>
+        <div classname="margin-boton">
+          <Button text="Crear evento" type="large"/>
+        </div>
       </form>
     </div>
   );

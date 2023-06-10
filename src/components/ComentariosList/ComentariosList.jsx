@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { getComentariosByEvent } from '../../redux/comentarios/comentarios.actions';
 import { useSelector } from 'react-redux';
 import Comentario from '../Comentario/Comentario';
+import "./ComentariosList.css"
 
 
 const ComentariosList = ({eventoId}) => {
@@ -16,7 +17,7 @@ const ComentariosList = ({eventoId}) => {
  return (
    <div>
    {loading  && (
-    <img src="/assets/loading.gif"/>
+    <div  className='div-img'><img src="/assets/music.gif"/></div>
    )}
    {comentarios.length ?
    (comentarios.map((comentario) =>{

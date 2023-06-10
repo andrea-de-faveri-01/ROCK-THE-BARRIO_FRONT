@@ -1,75 +1,3 @@
-// import React from 'react';
-// import { useForm } from 'react-hook-form';
-
-
-// const FormularioRegistro = () => {
-//   const { register, handleSubmit, formState: { errors } } = useForm();
-
-//   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-//   const onSubmit = (data) => {
-//     console.log(data);
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit(onSubmit)}>
-//       <div>
-//         <label>Email:</label>
-//         <input type="email" {...register('email', { required: true, 
-//             // pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i  
-//             })} />
-//         {errors.email && <span>Email inválido</span>}
-//       </div>
-
-//       <div>
-//         <label>Contraseña:</label>
-//         <input
-//           type="password"
-//           {...register('password', {
-//             required: true,
-//             // pattern: passwordRegex,
-//           })}
-//         />
-//         {errors.password && (
-//           <span>
-//             La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo
-//           </span>
-//         )}
-//       </div>
-
-//       <div>
-//         <label>Repetir Contraseña:</label>
-//         <input
-//           type="password"
-//           {...register('confirmPassword', {
-//             required: true,
-//             validate: (value) => value === password.current || "Las contraseñas no coinciden",
-//           })}
-//         />
-//         {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
-//       </div>
-
-//       <label>Username:</label>
-//       <input type="text" {...register('username', {required:true})} />
-
-//       <label>Birthday:</label>
-//       <input type="date" {...register('birthday')} />
-
-//       <label>Avatar:</label>
-//         <input
-//           type="file"
-//           accept=".png, .jpg, .jpeg"
-//           {...register('avatar')}
-//         />
-//         {errors.avatar && <span>Archivo inválido. Se permiten formatos PNG y JPG.</span>}
-      
-//     </form>
-//   );
-// };
-
-// export default FormularioRegistro;
-
-
 import React from "react";
 import "./FormularioRegistro.css";
 import { useForm } from "react-hook-form";
@@ -88,31 +16,33 @@ const dispatch = useDispatch();
   
 
   return (
-    <div>
-      <h3>DATE DE ALTA</h3>
+    <div className="card">
+      <h1>DATE DE ALTA</h1>
       <form onSubmit={handleSubmit((datos) => dispatch(registerUser(datos, navigate)))}>
-    <div>
-    <label>email</label>
-          <input {...register("email")} type="email" name="email" id="email"/>      
+    <div className="div-input">
+    <label className="margin-label">E-mail</label>
+          <input {...register("email")} type="email" name="email" id="email" className="input"/>      
     </div>
-    <div>
-          <label>password</label>
-          <input {...register("password")} type="password"/>
+    <div className="div-input">
+          <label className="margin-label">Contraseña</label>
+          <input {...register("password")} type="password" className="input"/>
         </div>
-        <div>
-          <label>username</label>
-          <input {...register("username")}/>
+        <div className="div-input">
+          <label className="margin-label">Usuario</label>
+          <input {...register("username")} className="input"/>
         </div>
-        <div>
-          <label>birthday</label>
-          <input {...register("birthday")} type="date"/>
+        <div className="div-input">
+          <label className="margin-label">Fecha de nacimiento</label>
+          <input {...register("birthday")} type="date" className="input"/>
         </div>
-        <div>
-          <label>avatar</label>
-          <input {...register("avatar")} />
+        <div className="div-input">
+          <label className="margin-label">Avatar</label>
+          <input {...register("avatar")} className="input"/>
         </div>
         <p className="error">{ error && error}</p>
-        <Button text="Registro" type="large"/>
+        <div className="margin-boton">
+        <Button text="Registrarse" type="large"/>
+        </div>
       </form>
    </div>
   )
