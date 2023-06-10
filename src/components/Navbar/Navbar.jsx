@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { logout } from "../../redux/usuarios/usuarios.actions";
+import { logout, setUser } from "../../redux/usuarios/usuarios.actions";
 import { useDispatch, useSelector } from "react-redux";
-import { usuariosReducer } from "../../redux/usuarios/usuarios.reducer";
+
 
 const Navbar = () => {
-  let { user } = useSelector((state) => state.usuariosReducer);
+  const dispatch=useDispatch()
+  const {user} = useSelector((state)=>state.usuariosReducer)
+   
+  
 
   return (
     <div>
       {user ? (
         <div className="disp">
           <h3 className="h3">Hola {user.username}</h3>
-          <Link to="/">
+          <div className="div-boton">
+            <div>
+            {user && user.role === 2 && (
+          <Link to="/crear-evento">
             <span>
-              <Button text="Salir" type="medium" onClick={logout}/>
+              <Button text="Crear Evento" type="medium" />
             </span>
           </Link>
+        )}
+            </div>
+            <Link to="/">
+              <span>
+                <Button text="Salir" type="medium" onClick={logout}/>
+              </span>
+            </Link>
+          </div>
         </div>
       ) : (
         <>

@@ -1,8 +1,15 @@
+
 import React from 'react'
+import FormularioCrearEvento from '../../components/FormularioCrearEvento/FormularioCrearEvento'
+import "./CrearEvento.css"
 
 const CrearEvento = () => {
   return (
-    <div>CrearEvento</div>
+    <div className='display'>
+      <div>
+        <FormularioCrearEvento/>
+      </div>
+    </div>
   )
 }
 

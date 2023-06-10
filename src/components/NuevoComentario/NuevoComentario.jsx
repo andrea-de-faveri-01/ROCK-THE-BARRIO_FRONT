@@ -1,10 +1,10 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import "./NuevoComentario.css";
 
-import Button from '../Button/Button';
-import { addComentario } from '../../redux/comentarios/comentarios.actions';
+import Button from "../Button/Button";
+import { addComentario } from "../../redux/comentarios/comentarios.actions";
 
 const NuevoComentario = ({ eventoId, user }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -37,7 +37,7 @@ const NuevoComentario = ({ eventoId, user }) => {
         </div>
         <div className="form-group">
           <label>Valoración</label>
-          <input type="number" {...register("valoracion")} />
+          <input type="number" {...register("valoracion")} min={0} max={5}/>
         </div>
         <Button type="submit" text="Enviar" />
       </form>

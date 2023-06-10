@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Evento = ({ evento }) => {
 
-  const maxLength = 100; // Número máximo de caracteres antes de truncar el contenido del texto
+  const maxLength = 75; // Número máximo de caracteres antes de truncar el contenido del texto
 
   const truncatedContent = evento.content.length > maxLength
     ? evento.content.slice(0, maxLength) + '...'
@@ -20,8 +20,10 @@ const Evento = ({ evento }) => {
     <div className="card">
       <div className="border-card">
         <div className="div-image">
-        <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
+
+          <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
             {evento.image ? <img src={evento.image} alt={evento.title} /> : <img src="https://metropoliabierta.elespanol.com/uploads/s1/36/81/72/audience-band-celebration-1190298_9_1200x480.jpeg" alt= "Imagen nula" />}
+
             
           </Link>
         </div>
@@ -35,11 +37,10 @@ const Evento = ({ evento }) => {
 
         </div>
         <div className="div2">
-          {evento.user_creator && <p>{evento.user_creator}</p>}
           {evento.site && <p>{evento.site}</p>}
           {fechaStart && <p>{fechaStart} {fechaEnd && `- ${fechaEnd}`}</p>}
           {evento.genre && <p>{evento.genre}</p>}
-          {evento.price == 0 ? <p>GRATUITO</p> : evento.price && <p>{evento.price} €</p>}
+          {evento.price == 0 ? <p className="gratuito">GRATUITO</p> : evento.price && <p>{evento.price} €</p>}
         </div>
       </div>
     </div>

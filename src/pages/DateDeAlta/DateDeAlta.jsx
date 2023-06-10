@@ -1,12 +1,13 @@
 import React from 'react'
 import FormularioRegistro from '../../components/FormularioRegistro/FormularioRegistro.jsx'
-import Button from '../../components/Button/Button.jsx'
+import "./DateDeAlta.css"
 
 const DateDeAlta = () => {
   return (
-    <div>DateDeAlta
+    <div className='display'>
+      <div>
        <FormularioRegistro/>
-       <Button text={"Registrarse"} type={"large"}/>
+      </div>
     </div>
    
   )
