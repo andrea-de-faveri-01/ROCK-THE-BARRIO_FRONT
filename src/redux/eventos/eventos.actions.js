@@ -1,9 +1,9 @@
-import { API } from "../../shared/api.js";
+import { API, APIIMAGES } from "../../shared/api.js";
 import store from "../store.js";
 
 const { dispatch } = store;
 
-const getAllEventos = ()=> async () => {
+const getAllEventos = () => async () => {
   dispatch({ type: "LOADING" });
 
   const resultado = await API.get("/evento");
@@ -11,7 +11,7 @@ const getAllEventos = ()=> async () => {
   dispatch({ type: "GET_EVENTOS", contenido: resultado.data });
 };
 
-const getEventoById = (id)=> async () => {
+const getEventoById = (id) => async () => {
   dispatch({ type: "CLEAR_EVENTO" });
   dispatch({ type: "LOADING" });
 
@@ -19,16 +19,40 @@ const getEventoById = (id)=> async () => {
   dispatch({ type: "GET_EVENTO", contenido: resultado.data });
 };
 
-const addEvento = (eventoData)=> async () => {
-    dispatch({ type: "LOADING" });
-  
-    try {
-      const resultado = await API.post("/evento", eventoData);
-  
-      dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
-    } catch (error) {
-      dispatch({ type: "ERROR", contenido: error.message });
+const addEvento = (eventoData, navigate, userId) => async () => {
+  dispatch({ type: "LOADING" });
+
+  try {
+    const formData = new FormData();
+    eventoData.user_creator=userId.user
+    console.log(eventoData);
+    formData.append("title", eventoData.title);
+    formData.append("subtitle", eventoData.subtitle);
+    formData.append("site", eventoData.site);
+    formData.append("price", eventoData.price);
+    formData.append("date_start", eventoData.date_start);
+    if (eventoData.date_end) {
+      formData.append("date_end", eventoData.date_end);
     }
-  };
+    
+    formData.append("genre", eventoData.genre);
+    formData.append("content", eventoData.content);
+    formData.append("url", eventoData.url);
+    if (eventoData.image[0]!==undefined){
+    formData.append("image", eventoData.image[0])}
+    formData.append("user_creator", eventoData.user_creator);
+    for (const [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+    APIIMAGES.post("/evento", formData).then((resultado) => {
+      dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+      navigate("/");
+    });
+
+    dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+  } catch (error) {
+    dispatch({ type: "ERROR", contenido: error.message });
+  }
+};
 
 export { getAllEventos, getEventoById, addEvento };

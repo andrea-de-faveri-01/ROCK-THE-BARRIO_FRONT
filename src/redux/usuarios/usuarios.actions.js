@@ -38,6 +38,7 @@ const setUser = (userData) => {
   
 const logout = () => {
   localStorage.removeItem("token");
+  localStorage.removeItem("user")
   dispatch({ type: "LOGOUT" });
 };
 

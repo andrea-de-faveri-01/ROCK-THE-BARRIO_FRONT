@@ -16,7 +16,7 @@ const Evento = ({ evento }) => {
       <div className="border-card">
         <div className="div-image">
         <Link to={{ pathname: `/${evento._id}`, state: { evento } }}>
-            {evento.image ? <img src={evento.image} alt={evento.title} /> : <img src="https://metropoliabierta.elespanol.com/uploads/s1/36/81/72/audience-band-celebration-1190298_9_1200x480.jpeg" alt= "Imagen nula" />}
+            {evento.image  ? <img src={evento.image} alt={evento.title} /> : <img src="https://metropoliabierta.elespanol.com/uploads/s1/36/81/72/audience-band-celebration-1190298_9_1200x480.jpeg" alt= "Imagen nula" />}
             
           </Link>
         </div>

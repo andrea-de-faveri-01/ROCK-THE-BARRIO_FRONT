@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { logout } from "../../redux/usuarios/usuarios.actions";
+import { logout, setUser } from "../../redux/usuarios/usuarios.actions";
 import { useDispatch, useSelector } from "react-redux";
-import { usuariosReducer } from "../../redux/usuarios/usuarios.reducer";
+
 
 const Navbar = () => {
-  let { user } = useSelector((state) => state.usuariosReducer);
-console.log(user);
+  const dispatch=useDispatch()
+  const {user} = useSelector((state)=>state.usuariosReducer)
+   
+  
+
   return (
     <div>
       {user && user.role === 2 && (

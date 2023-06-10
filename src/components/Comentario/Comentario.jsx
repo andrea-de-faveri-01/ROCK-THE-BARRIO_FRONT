@@ -14,7 +14,7 @@ const Comentario = ({ comentario }) => {
   const [editMode, setEditMode] = useState(false);
   const [editedTitle, setEditedTitle] = useState(comentario.title);
   const [editedContent, setEditedContent] = useState(comentario.content);
-  const [editedValue, setEditedValue] = useState(comentario.value??1);
+  const [editedValue, setEditedValue] = useState(comentario.value);
   const handleEdit = () => {
     if (editMode) {
       const comentarioData = {
@@ -75,7 +75,7 @@ const Comentario = ({ comentario }) => {
               onChange={(e) => setEditedContent(e.target.value)}
             />
             <input
-              type="text"
+              type="number"
               value={editedValue}
               onChange={(e) => setEditedValue(e.target.value)}
             />
