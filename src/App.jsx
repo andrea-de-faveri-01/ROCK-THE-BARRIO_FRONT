@@ -28,7 +28,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/:id' element={<DetallesEvento/>}/>
-        <Route path='/date-de-alta' element={<DateDeAlta/>}/>
+        <Route path='/date-de-alta' element={!user ? <DateDeAlta/> : <Navigate to = "/" replace={true}/>}/>
         <Route path='/crear-evento' element={user && user.role === 2 ? <CrearEvento/>:<Navigate to = "/" replace={true}/>}/>
         <Route path='/login' element={!user ? <Login/> : <Navigate to = "/" replace={true}/> }/>
         <Route path='*' element={<Home/>}/>
