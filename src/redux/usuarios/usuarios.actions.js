@@ -41,4 +41,23 @@ const logout = () => {
   dispatch({ type: "LOGOUT" });
 };
 
-export { login, logout, setUser };
+const checkSesion = ()=>() =>{
+  try {
+    const userJson = localStorage.getItem("user");
+    const tokenJson = localStorage.getItem("token");
+    
+    if (userJson && tokenJson){
+      dispatch({
+        type: "LOGIN",
+        contenido: {
+          user: JSON.parse(userJson),
+          token:tokenJson.replaceAll('"',''),
+        },
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { login, logout, setUser,checkSesion };
