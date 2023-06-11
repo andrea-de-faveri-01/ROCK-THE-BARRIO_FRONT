@@ -1,0 +1,9 @@
+.comentario-title-box{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.comentario-title-name{
+    margin: 10px;
+}
