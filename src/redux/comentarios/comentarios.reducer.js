@@ -33,7 +33,7 @@ export const comentariosReducer = (state = INITIAL_STATE, action) => {
         ),
       };
       
-    case "ERROR":
+    case "ERROR_COMENTARIOS":
       return {
         ...state,
         loading: false,

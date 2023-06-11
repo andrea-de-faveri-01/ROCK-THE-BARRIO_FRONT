@@ -26,7 +26,7 @@ const login = (datos, navigate) => async () => {
       setUserData(resultado, navigate)
     })
     .catch((error) => {
-      dispatch({ type: "ERROR", contenido: error.response.data });
+      dispatch({ type: "ERROR_USUARIO", contenido: error.response.data });
     });
 };
 
@@ -70,7 +70,7 @@ const registerUser = (datos, navigate) => async () => {
      setUserData(resultado, navigate)
     })
     .catch((error) => {
-      dispatch({ type: "ERROR", contenido: error.response.data });
+      dispatch({ type: "ERROR_USUARIO", contenido: error.response.data });
     });
 };
 
