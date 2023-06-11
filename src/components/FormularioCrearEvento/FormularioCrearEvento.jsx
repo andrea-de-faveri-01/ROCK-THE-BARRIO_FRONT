@@ -77,7 +77,7 @@ const FormularioCrearEvento = () => {
           <label>Género</label>
           <input  className="input" {...register("genre")} />
         </div>
-        <div classname="margin-boton">
+        <div className="margin-boton">
           <Button text="Crear evento" type="large"/>
         </div>
       </form>
