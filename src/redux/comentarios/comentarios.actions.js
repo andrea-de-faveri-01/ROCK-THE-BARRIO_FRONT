@@ -17,7 +17,7 @@ const addComentario = (comentarioData) => async (dispatch) => {
 
     dispatch({ type: "ADD_COMENTARIO", contenido: resultado.data });
   } catch (error) {
-    dispatch({ type: "ERROR", contenido: error.message });
+    dispatch({ type: "ERROR_COMENTARIOS", contenido: error.message });
   }
 };
 
@@ -42,7 +42,7 @@ const editComentario = (idComentario, comentarioData)=> async () => {
 
     dispatch({ type: "EDIT_COMENTARIO", contenido: resultado.data });
   } catch (error) {
-    dispatch({ type: "ERROR", contenido: error.message });
+    dispatch({ type: "ERROR_COMENTARIOS", contenido: error.message });
   }
 };
 
@@ -53,7 +53,7 @@ const deleteComentario =  (idComentario)=> async () => {
 
     dispatch({ type: "DELETE_COMENTARIO", contenido: resultado.data });
   } catch (error) {
-    dispatch({ type: "ERROR", contenido: error.message });
+    dispatch({ type: "ERROR_COMENTARIOS", contenido: error.message });
   }
 };
 
