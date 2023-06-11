@@ -57,7 +57,7 @@ const dispatch=useDispatch();
           </div>
         </div>
 
-        <div className="divDetEv">
+        <div>
           <div>
             {user && <NuevoComentario eventoId={evento._id} user={user} />}
           </div>
