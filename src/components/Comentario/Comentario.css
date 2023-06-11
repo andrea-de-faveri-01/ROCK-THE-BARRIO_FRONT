@@ -1,3 +1,15 @@
+.comentario-box{
+    margin: 10px;
+    width: 320px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.comentario-card{
+    border: 2px solid;
+    border-radius: 10px;
+}
+
 .comentario-title-box{
     display: flex;
     align-items: center;
