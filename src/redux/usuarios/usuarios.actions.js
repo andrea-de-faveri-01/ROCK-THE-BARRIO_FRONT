@@ -74,14 +74,18 @@ const registerUser = (datos, navigate) => async () => {
       formData.append("avatar", datos.image[0]);
     }
 
-    APIIMAGES.post("/usuario/register", formData).then((resultado) => {
-      dispatch({ type: "SET_USER", contenido: resultado.data.user }).then(
-        setUserData(resultado, navigate)
-      );
+    // APIIMAGES.post("/usuario/register", formData).then((resultado) => {
+    //   dispatch({ type: "SET_USER", contenido: resultado.data.user }).then(
+    //     setUserData(resultado, navigate)
+    //   );
 
-      // navigate("/")
-    });
+    //   // navigate("/")
+    // });
 
+    const resultado = await APIIMAGES.post("/usuario/register", formData);
+    dispatch({ type: "SET_USER", contenido: resultado.data.user });
+    setUserData(resultado, navigate);
+    
     // await  setUserData(result, navigate)
   } catch (error) {
     dispatch({ type: "ERROR", contenido: error.message });
