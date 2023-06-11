@@ -15,6 +15,7 @@ import {
   AccordionPanel,
 } from "@fluentui/react-components";
 import { Star28Filled } from "@fluentui/react-icons";
+import { Card } from 'antd';
 
 const Comentario = ({ comentario }) => {
   const dispatch = useDispatch();
@@ -78,8 +79,8 @@ const Comentario = ({ comentario }) => {
     <div>
     <FluentProvider theme={teamsLightTheme}>
       <div>
-       
-        <div>
+      <Card title={ 
+        <div className="comentario-title-box">
         
         <Avatar 
         color="colorful"
@@ -88,10 +89,11 @@ const Comentario = ({ comentario }) => {
     image={{
       src: comentario.user.avatar,
     }}/>
-    <p>{comentario.user.username}</p>
+    <p className="comentario-title-name">{comentario.user.username}</p>
     
     
-    </div>
+    </div>}
+    bordered={true} style={{ width: 500 }}>
         {/* {comentario.user.avatar ? (
           <img src={comentario.user.avatar} alt="user avatar" />
         ) : (
@@ -113,6 +115,7 @@ const Comentario = ({ comentario }) => {
             <input
               type="number"
               value={editedValue}
+              min={0} max={5}
               onChange={(e) => setEditedValue(e.target.value)}
             />
           </>
@@ -159,6 +162,7 @@ const Comentario = ({ comentario }) => {
             />
           </>
         )}
+        </Card>
       </div>
       </FluentProvider>
     </div>
