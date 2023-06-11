@@ -39,23 +39,35 @@ const dispatch=useDispatch();
     {(loading && !evento)  && (
     <div  className='div-img'><img src="/assets/music.gif"/></div>
     )}
-      <h2>DETALLES EVENTO</h2>
       {evento ? (
         <>
-      <div >
+      <div>
+        <div className="divCardDetEv">
+          <div className="cardDetEv">
             <h1>{evento.title}</h1>
             {evento.image && <img src={evento.image} />}
             <h2>{evento.subtitle}</h2>
-            <h3>{evento.site}</h3>
-            {evento.price==0 ? <h3>GRATUITO</h3>: <h3>{evento.price} €</h3>}
+            <h3>Lugar: {evento.site}</h3>
+            {evento.price==0 ? <h3>GRATUITO</h3>: <h3>Precio: {evento.price} €</h3>}
             <h3>{fechaStart}</h3>
             {fechaEnd && <h3>{fechaEnd}</h3>}
-            {evento.genre && <h3>{evento.genre}</h3>}
+            {evento.genre && <h3>Género: {evento.genre}</h3>}
             <p>{evento.content}</p>
-            <Button text="Comprar" type="medium" onClick={comprar}/>       
+            <div><Button text="Comprar" type="medium" onClick={comprar}/></div>       
+          </div>
+        </div>
+
+        <div className="divDetEv">
+          <div>
+            {user && <NuevoComentario eventoId={evento._id} user={user} />}
+          </div>
+          <div>
+            {evento ? <ComentariosList eventoId={evento._id} /> : null}
+          </div>
+        </div>
       </div>
-      {user && <NuevoComentario eventoId={evento._id} user={user} />}
-      {evento ? <ComentariosList eventoId={evento._id} /> : null}
+      
+
 
       </>
       ) : 'No hay eventos que mostrar'}
