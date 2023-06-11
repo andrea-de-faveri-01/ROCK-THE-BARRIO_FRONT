@@ -16,6 +16,9 @@ import {
 } from "@fluentui/react-components";
 import { Star20Filled } from "@fluentui/react-icons";
 import { Card } from "antd";
+import { DeleteTwoTone } from '@ant-design/icons';
+
+
 
 const Comentario = ({ comentario }) => {
   const dispatch = useDispatch();
@@ -94,7 +97,7 @@ const Comentario = ({ comentario }) => {
             </div>
           }
           bordered={true}
-          style={{ width: 320 }}
+          style={{ width: 500 }}
         >
           {/* {comentario.user.avatar ? (
           <img src={comentario.user.avatar} alt="user avatar" />
@@ -167,7 +170,7 @@ const Comentario = ({ comentario }) => {
               )}
               <Button
                 type="delete"
-                text="Borrar"
+                text= {<DeleteTwoTone twoToneColor="#f5222d"/>}
                 onClick={() => handleDelete()}
               />
             </>
