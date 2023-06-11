@@ -17,7 +17,7 @@ const dispatch = useDispatch();
 
   return (
     <div className="card">
-      <h1>DATE DE ALTA</h1>
+      <h1>Date de alta</h1>
       <form onSubmit={handleSubmit((datos) => dispatch(registerUser(datos, navigate)))}>
     <div className="div-input">
     <label className="margin-label">E-mail</label>

@@ -23,49 +23,49 @@ const FormularioCrearEvento = () => {
   console.log(user);
   
  return (
-    <div className="card">
-      <h2>Crear Evento</h2>
+    <div className="cardCrearEvento">
+      <h1>Crear Evento</h1>
       <form onSubmit={handleSubmit((datos) => dispatch(addEvento(datos, navigate, {user:user._id})))}>
-        <div className="div-input">
+        <div className="div-inputCrearEvento">
           <label>Título</label>
-          <input  className="input" {...register("title", { required: true })} />
+          <input  className="inputCrearEvento" {...register("title", { required: true })}/>
           {errors.title && <span>Título es requerido</span>}
         </div>
-        <div className="div-input">
+        <div className="div-inputCrearEvento">
           <label>Artista/s</label>
-          <input  className="input" {...register("subtitle", { required: true })} />
+          <input  className="inputCrearEvento" {...register("subtitle", { required: true })}/>
           {errors.subtitle && <span>Subtítulo es requerido</span>}
         </div>
-        <div className="div-input">
+        <div className="infoCrearEvento">
           <label>Información</label>
-          <textarea {...register("content", { required: true })} />
+          <textarea {...register("content", { required: true })} className="inputCrearEvento"/>
           {errors.content && <span>Contenido es requerido</span>}
         </div>
 
-        <div className="div-input">
+        <div className="div-inputCrearEvento">
           <label>Lugar</label>
-          <input  className="input" {...register("site", { required: true })} />
+          <input  className="inputCrearEvento" {...register("site", { required: true })}/>
           {errors.site && <span>Sitio es requerido</span>}
         </div>
-        <div className="div-input">
+        <div className="div-inputCrearEvento">
           <label>Precio</label>
-          <input  className="input" type="number" {...register("price", { required: true })} />
+          <input  className="inputCrearEvento" type="number" {...register("price", { required: true })}/>
           {errors.price && <span>Precio es requerido</span>}
         </div>
-        <div className="div-input">
+        <div className="fechaCrearEvento">
           <label>Fecha de Inicio</label>
-          <input  className="input" type="date" {...register("date_start", { required: true })} />
+          <input  className="inputCrearEvento" type="date" {...register("date_start", { required: true })}/>
           {errors.date_start && <span>Fecha de Inicio es requerida</span>}
         </div>
-        <div className="div-input">
+        <div className="fechaCrearEvento">
           <label>Fecha de Fin</label>
-          <input  className="input" type="date" {...register("date_end")} />
+          <input  className="inputCrearEvento" type="date" {...register("date_end")}/>
         </div>
-        <div className="div-input">
+        <div className="div-inputCrearEvento">
           <label>URL</label>
-          <input  className="input" {...register("url")} />
+          <input  className="inputCrearEvento" {...register("url")}/>
         </div>
-        <div className="div-input">
+        <div className="div-inputCrearEvento">
           <label>Imagen</label>
           <SubirImagen
               register={register}
@@ -73,9 +73,9 @@ const FormularioCrearEvento = () => {
             />
             {imageFile && <img className="imagen" src={imageFile} />}
         </div>
-        <div className="div-input">
+        <div className="div-inputCrearEvento">
           <label>Género</label>
-          <input  className="input" {...register("genre")} />
+          <input  className="inputCrearEvento" {...register("genre")} />
         </div>
         <div className="margin-boton">
           <Button text="Crear evento" type="large"/>
