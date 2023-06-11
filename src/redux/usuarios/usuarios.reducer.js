@@ -22,7 +22,7 @@ export const usuariosReducer = (state = INITIAL_STATE, action) => {
         token: action.contenido.token ,
         error:null,
       };
-    case "ERROR":
+    case "ERROR_USUARIO":
       return {
         ...state,
         loading: false,

@@ -20,6 +20,7 @@ const FormularioRegistro = () => {
 
   return (
     <div className="card">
+
       <h1>DATE DE ALTA</h1>
       <form
         onSubmit={handleSubmit((datos) =>
@@ -37,6 +38,7 @@ const FormularioRegistro = () => {
           />
         </div>
         <div className="div-input">
+
           <label className="margin-label">Contraseña</label>
           <input {...register("password")} type="password" className="input" />
         </div>

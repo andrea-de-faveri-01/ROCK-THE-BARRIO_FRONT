@@ -16,7 +16,7 @@ export const eventosReducer = (state = INITIAL_STATE, action) => {
     case "CLEAR_EVENTO":
       return { ...state, evento: null };
       break;
-    case "ERROR":
+    case "ERROR_EVENTO":
       return {
         ...state,
         loading: false,
