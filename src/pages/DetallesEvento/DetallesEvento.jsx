@@ -21,7 +21,9 @@ const DetallesEvento = () => {
   const eliminarEvento = () => {
     dispatch(deleteEvento(evento._id, navigate));
   };
-
+  const editarEvento = () => {
+    navigate(`/editar-evento/${evento._id}`);
+  };
   const comprar = () => {
     window.location.href = evento.url;
   };
@@ -75,11 +77,18 @@ const DetallesEvento = () => {
                   <Button text={textoBoton} type="medium" onClick={comprar} />
                 </div>
                 {user?.role === 2 && (
+                  <div className="evento-botonesAdmin">
                   <Button
                     text="Eliminar"
                     type="medium"
                     onClick={eliminarEvento}
                   />
+                  <Button
+                    text="Editar"
+                    type="medium"
+                    onClick={editarEvento}
+                  />
+                  </div>
                 )}
               </div>
             </div>

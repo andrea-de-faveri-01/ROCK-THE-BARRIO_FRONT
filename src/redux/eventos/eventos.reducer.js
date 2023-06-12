@@ -13,6 +13,16 @@ export const eventosReducer = (state = INITIAL_STATE, action) => {
       return { ...state, loading: false, evento: action.contenido };
     case "ADD_EVENTO":
       return { ...state, eventos: [...state.eventos, action.contenido] };
+      case "EDIT_EVENTO":
+        return {
+          ...state,
+          eventos: state.eventos.map(evento =>
+            evento._id === action.id ? { ...evento, ...action.datos } : evento
+          ),
+          evento: { ...state.evento, ...action.datos },
+          loading: false,
+          error: null
+        };
     case "DELETE_EVENTO":
       return {
         ...state,
@@ -20,6 +30,13 @@ export const eventosReducer = (state = INITIAL_STATE, action) => {
           (evento) => evento.id !== action.contenido
         ),
       };
+      case "GET_EVENTOBYID":
+        return {
+          ...state,
+          evento: state.eventos.filter(
+            (evento) => evento.id === action.contenido
+          ),
+        };
     case "CLEAR_EVENTO":
       return { ...state, evento: null };
       break;
