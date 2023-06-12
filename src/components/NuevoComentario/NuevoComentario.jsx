@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./NuevoComentario.css";
 
 import Button from "../Button/Button";
@@ -9,7 +9,7 @@ import { addComentario } from "../../redux/comentarios/comentarios.actions";
 const NuevoComentario = ({ eventoId, user }) => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
-
+  const {error} = useSelector((state) => state.comentariosReducer); 
   const onSubmit = (data) => {
     const comentarioData = {
       title: data.titulo,
@@ -39,6 +39,7 @@ const NuevoComentario = ({ eventoId, user }) => {
           <label>Valoración</label>
           <input type="number" {...register("valoracion")} min={0} max={5}/>
         </div>
+        {error && <p >{error}</p>} 
         <Button type="submit" text="Enviar" />
       </form>
     </div>

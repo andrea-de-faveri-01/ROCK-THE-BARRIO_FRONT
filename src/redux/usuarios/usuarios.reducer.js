@@ -22,13 +22,13 @@ export const usuariosReducer = (state = INITIAL_STATE, action) => {
         token: action.contenido.token ,
         error:null,
       };
-    case "ERROR":
+    case "ERROR_USUARIO":
       return {
         ...state,
         loading: false,
         user: null,
         token: null,
-        error: action.contenido.message,
+        error: action.contenido,
       };
       case "LOGOUT": 
       return {...state, user: null, token: null};

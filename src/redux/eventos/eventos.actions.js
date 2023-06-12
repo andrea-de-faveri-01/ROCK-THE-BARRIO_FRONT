@@ -24,8 +24,8 @@ const addEvento = (eventoData, navigate, userId) => async () => {
 
   try {
     const formData = new FormData();
-    eventoData.user_creator=userId.user
-    console.log(eventoData);
+    eventoData.user_creator = userId.user;
+
     formData.append("title", eventoData.title);
     formData.append("subtitle", eventoData.subtitle);
     formData.append("site", eventoData.site);
@@ -34,24 +34,28 @@ const addEvento = (eventoData, navigate, userId) => async () => {
     if (eventoData.date_end) {
       formData.append("date_end", eventoData.date_end);
     }
-    
+
     formData.append("genre", eventoData.genre);
     formData.append("content", eventoData.content);
     formData.append("url", eventoData.url);
-    if (eventoData.image[0]!==undefined){
-    formData.append("image", eventoData.image[0])}
-    formData.append("user_creator", eventoData.user_creator);
-    for (const [key, value] of formData.entries()) {
-      console.log(key, value);
+    if (eventoData.image[0] !== undefined) {
+      formData.append("image", eventoData.image[0]);
     }
-    APIIMAGES.post("/evento", formData).then((resultado) => {
-      dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
-      navigate("/");
-    });
+    formData.append("user_creator", eventoData.user_creator);
+
+    // APIIMAGES.post("/evento", formData).then((resultado) => {
+    //   dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+    //   navigate("/");
+    // });
+
+    const resultado = await APIIMAGES.post("/evento", formData);
+    dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+    navigate("/");
+
 
     dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
   } catch (error) {
-    dispatch({ type: "ERROR", contenido: error.message });
+    dispatch({ type: "ERROR_EVENTO", contenido: error.message });
   }
 };
 

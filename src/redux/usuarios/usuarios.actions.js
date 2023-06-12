@@ -1,9 +1,9 @@
-import { API } from "../../shared/api";
+import { API, APIIMAGES } from "../../shared/api";
 import store from "../store";
 
 const { dispatch } = store;
 
-const setUserData = (resultado, navigate) =>{
+const setUserData = (resultado, navigate) => {
   dispatch({
     type: "LOGIN",
     contenido: {
@@ -16,17 +16,17 @@ const setUserData = (resultado, navigate) =>{
   localStorage.setItem("user", JSON.stringify(resultado.data.user));
 
   navigate("/");
-}
+};
 
 const login = (datos, navigate) => async () => {
   dispatch({ type: "LOADING_LOGIN" });
 
   API.post("/usuario/login", datos)
     .then((resultado) => {
-      setUserData(resultado, navigate)
+      setUserData(resultado, navigate);
     })
     .catch((error) => {
-      dispatch({ type: "ERROR", contenido: error.response.data });
+      dispatch({ type: "ERROR_USUARIO", contenido: error.response.data });
     });
 };
 
@@ -39,7 +39,7 @@ const setUser = (userData) => {
 
 const logout = () => {
   localStorage.removeItem("token");
-  localStorage.removeItem("user")
+  localStorage.removeItem("user");
   dispatch({ type: "LOGOUT" });
 };
 
@@ -63,15 +63,34 @@ const checkSesion = () => () => {
 };
 
 const registerUser = (datos, navigate) => async () => {
-  dispatch({ type: "SET_USER" });
-  API.post("/usuario/register", datos)
+  try {
+    const formData = new FormData();
 
-    .then((resultado) => {
-     setUserData(resultado, navigate)
-    })
-    .catch((error) => {
-      dispatch({ type: "ERROR", contenido: error.response.data });
-    });
+    formData.append("email", datos.email);
+    formData.append("username", datos.username);
+    formData.append("password", datos.password);
+    formData.append("birthday", datos.birthday);
+    if (datos.image[0] !== undefined) {
+      formData.append("avatar", datos.image[0]);
+    }
+
+    // APIIMAGES.post("/usuario/register", formData).then((resultado) => {
+    //   dispatch({ type: "SET_USER", contenido: resultado.data.user }).then(
+    //     setUserData(resultado, navigate)
+    //   );
+
+    //   // navigate("/")
+    // });
+
+    const resultado = await APIIMAGES.post("/usuario/register", formData);
+    dispatch({ type: "SET_USER", contenido: resultado.data.user });
+    setUserData(resultado, navigate);
+    
+    // await  setUserData(result, navigate)
+  } catch (error) {
+    dispatch({ type: "ERROR_USUARIO", contenido: error.message });
+  }
+
 };
 
 export { login, logout, setUser, checkSesion, registerUser };

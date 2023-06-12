@@ -21,7 +21,7 @@ function App() {
   }, []);
   return (
     <>
-    <div>
+    <div className="background">
     <Header/>
     {sesionVerificada ? 
       <Routes>
@@ -34,7 +34,7 @@ function App() {
       </Routes>
       :
       ""}
-            
+           
     </div>
 
     </>

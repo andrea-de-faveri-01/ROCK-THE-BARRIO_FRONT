@@ -7,12 +7,12 @@ import "./EventosList.css"
 
 const EventosList = () => {
   const dispatch=useDispatch();
-
+  const { loading, eventos } = useSelector((reducer) => reducer.eventosReducer);
     useEffect(() => {
         dispatch(getAllEventos());
-       }, [])
+       }, [dispatch])
       
-       const { loading, eventos } = useSelector((reducer) => reducer.eventosReducer);
+       
       
 
  return (

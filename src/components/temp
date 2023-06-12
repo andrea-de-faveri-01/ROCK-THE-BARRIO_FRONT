@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addEvento } from "../../redux/eventos/eventos.actions";
-import "./FormularioCrearEvento.css"
+
 import { useNavigate } from 'react-router-dom';
 import SubirImagen from "../../components/SubirImagen/SubirImagen";
-import Button from "../Button/Button";
 
 
-
-const FormularioCrearEvento = () => {
+const CrearEvento = () => {
   const { user } = useSelector((state) => state.usuariosReducer);
   const navigate = useNavigate();
   const {
@@ -23,49 +21,49 @@ const FormularioCrearEvento = () => {
   console.log(user);
   
  return (
-    <div className="cardCrearEvento">
-      <h1>Crear Evento</h1>
+    <div className="card">
+      <h2>Crear Evento</h2>
       <form onSubmit={handleSubmit((datos) => dispatch(addEvento(datos, navigate, {user:user._id})))}>
-        <div className="div-inputCrearEvento">
+        <div className="div-input">
           <label>Título</label>
-          <input  className="inputCrearEvento" {...register("title", { required: true })}/>
+          <input  className="input" {...register("title", { required: true })} />
           {errors.title && <span>Título es requerido</span>}
         </div>
-        <div className="div-inputCrearEvento">
+        <div className="div-input">
           <label>Artista/s</label>
-          <input  className="inputCrearEvento" {...register("subtitle", { required: true })}/>
+          <input  className="input" {...register("subtitle", { required: true })} />
           {errors.subtitle && <span>Subtítulo es requerido</span>}
         </div>
-        <div className="infoCrearEvento">
+        <div className="div-input">
           <label>Información</label>
-          <textarea {...register("content", { required: true })} className="inputCrearEvento"/>
+          <textarea {...register("content", { required: true })} />
           {errors.content && <span>Contenido es requerido</span>}
         </div>
 
-        <div className="div-inputCrearEvento">
+        <div className="div-input">
           <label>Lugar</label>
-          <input  className="inputCrearEvento" {...register("site", { required: true })}/>
+          <input  className="input" {...register("site", { required: true })} />
           {errors.site && <span>Sitio es requerido</span>}
         </div>
-        <div className="div-inputCrearEvento">
+        <div className="div-input">
           <label>Precio</label>
-          <input  className="inputCrearEvento" type="number" {...register("price", { required: true })}/>
+          <input  className="input" type="number" {...register("price", { required: true })} />
           {errors.price && <span>Precio es requerido</span>}
         </div>
-        <div className="fechaCrearEvento">
+        <div className="div-input">
           <label>Fecha de Inicio</label>
-          <input  className="inputCrearEvento" type="date" {...register("date_start", { required: true })}/>
+          <input  className="input" type="date" {...register("date_start", { required: true })} />
           {errors.date_start && <span>Fecha de Inicio es requerida</span>}
         </div>
-        <div className="fechaCrearEvento">
+        <div className="div-input">
           <label>Fecha de Fin</label>
-          <input  className="inputCrearEvento" type="date" {...register("date_end")}/>
+          <input  className="input" type="date" {...register("date_end")} />
         </div>
-        <div className="div-inputCrearEvento">
+        <div className="div-input">
           <label>URL</label>
-          <input  className="inputCrearEvento" {...register("url")}/>
+          <input  className="input" {...register("url")} />
         </div>
-        <div className="div-inputCrearEvento">
+        <div className="div-input">
           <label>Imagen</label>
           <SubirImagen
               register={register}
@@ -73,16 +71,11 @@ const FormularioCrearEvento = () => {
             />
             {imageFile && <img className="imagen" src={imageFile} />}
         </div>
-        <div className="div-inputCrearEvento">
+        <div className="div-input">
           <label>Género</label>
-          <input  className="inputCrearEvento" {...register("genre")} />
+          <input  className="input" {...register("genre")} />
         </div>
-        <div className="margin-boton">
-          <Button text="Crear evento" type="large"/>
-        </div>
+        <button className="margin-bottom" type="submit">Crear Evento</button>
       </form>
     </div>
   );
-};
-
-export default FormularioCrearEvento;

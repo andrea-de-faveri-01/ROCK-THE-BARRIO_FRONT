@@ -7,9 +7,9 @@ const Evento = ({ evento }) => {
 
   const maxLength = 75; // Número máximo de caracteres antes de truncar el contenido del texto
 
-  const truncatedContent = evento.content.length > maxLength
+  const truncatedContent = evento.content ? evento.content.length > maxLength
     ? evento.content.slice(0, maxLength) + '...'
-    : evento.content;
+    : evento.content: "";
 
   const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
   const fechaStart = evento.date_start ? new Date(evento.date_start).toLocaleDateString('es-ES', opciones) : '';
