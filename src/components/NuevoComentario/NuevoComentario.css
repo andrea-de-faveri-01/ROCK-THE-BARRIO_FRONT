@@ -11,6 +11,7 @@
 }
 .tit{
     margin-right: 10px;
+    margin-left: 1%;
 }
 .content{
     width:94%;
@@ -18,7 +19,7 @@
     margin-right: 2%;
     margin-left: 2%;
     margin-top:2%;
-
+    border:solid 1px
 }
 .divContent{
     margin-top: 1%;
@@ -35,6 +36,7 @@
     margin-left:1%;
     margin-top:2%;
     margin-bottom: 2%;
+    border:solid 1px
 }
 .h2NC{
     text-align: center;

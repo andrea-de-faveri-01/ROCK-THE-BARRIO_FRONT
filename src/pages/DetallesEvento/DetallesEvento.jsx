@@ -73,7 +73,7 @@ const DetallesEvento = () => {
                 {fechaEnd && <h3>{fechaEnd}</h3>}
                 {evento.genre && <h3>Género: {evento.genre}</h3>}
                 <p>{evento.content}</p>
-                <div>
+                <div className="margin-boton-info">
                   <Button text={textoBoton} type="medium" onClick={comprar} />
                 </div>
                 {user?.role === 2 && (
@@ -102,7 +102,7 @@ const DetallesEvento = () => {
                   )}
                 </div>
                 <div>
-                <div className="divCardDetEv comentarioDetEv">
+                <div className="divCardDetEv">
                   {evento ? <ComentariosList eventoId={evento._id} /> : null}
                 </div>
                 </div>
