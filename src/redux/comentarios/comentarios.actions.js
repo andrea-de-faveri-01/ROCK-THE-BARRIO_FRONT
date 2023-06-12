@@ -15,11 +15,15 @@ const getAllComentarios = () => async () => {
  
 };
 
-const addComentario = (comentarioData) => async (dispatch) => {
+const addComentario = (comentarioData, eventId) => async (dispatch) => {
   dispatch({ type: "LOADING" });
   try {
-    const resultado = await API.post("/comentario", comentarioData);
-    dispatch({ type: "ADD_COMENTARIO", contenido: resultado.data });
+     await API.post("/comentario", comentarioData);
+    // const resultadoGet = await API.get(`/comentario/getbyevent/${eventId}`)
+    // console.log(resultadoGet);
+    // dispatch({ type: "ADD_COMENTARIO", contenido: resultadoGet.data });
+    console.log(eventId);
+    getComentariosByEvent(eventId)
   } catch (error) {
     dispatch({ type: "ERROR_COMENTARIOS", contenido: error.response.data.message });
   }
