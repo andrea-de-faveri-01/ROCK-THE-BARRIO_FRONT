@@ -2,8 +2,7 @@ import React from "react";
 import "./Footer.css";
 import Button from "../Button/Button";
 import { GithubOutlined, LinkedinOutlined } from "@ant-design/icons";
-
-
+import { Tooltip } from "antd";
 
 
 const scrollToTop = () => {
@@ -17,43 +16,48 @@ const scrollToTop = () => {
     return (
         <div className="footer-container">
       <div className="ant-icons">
-      {/* <p>GitHub FontEnd</p> */}
+      <Tooltip title="GitHub FontEnd" >
         <a href="https://github.com/andrea-de-faveri-01/ROCK-THE-BARRIO_FRONT"
         target="_blank" rel="noopener noreferrer"
         >
           <GithubOutlined className="ant-icon" />
         </a>
-        {/* <p>GitHub BackEnd</p> */}
+        </Tooltip>
+        <Tooltip title="GitHub BackEnd">
         <a href="https://github.com/GaleGizmo/ROCK_DE_BARRIO_BACKEND" 
         target="_blank" rel="noopener noreferrer"
         >
           <GithubOutlined className="ant-icon" />
         </a>
-        {/* <p>Miguel 🎸</p> */}
+        </Tooltip>
+        <Tooltip title="Miguel 🎸">
         <a href="https://www.linkedin.com/in/miguelabelleira-fsd/"
         target="_blank" rel="noopener noreferrer"
         >
           <LinkedinOutlined className="ant-icon" />
         </a>
-        {/* <p>Moha 🥁</p> */}
+        </Tooltip>
+        <Tooltip title="Moha 🥁">
         <a href="https://www.linkedin.com/in/mohamed-nour-abdulla-743587176/"
         target="_blank" rel="noopener noreferrer"
         >
           <LinkedinOutlined className="ant-icon" />
         </a>
-        
-        {/* <p>Alex 🎷</p> */}
+        </Tooltip>
+        <Tooltip title="Alex 🎷">
         <a href="https://www.linkedin.com/in/alejandro-rodriguez-asencio-full-stack-developer/"
         target="_blank" rel="noopener noreferrer"
         >
           <LinkedinOutlined className="ant-icon" />
         </a>
-        {/* <p>Andrea 🎺</p> */}
+        </Tooltip>
+        <Tooltip title="Andrea 🎺">
         <a href="https://www.linkedin.com/in/andrea-de-faveri-dev/"
         target="_blank" rel="noopener noreferrer"
         >
           <LinkedinOutlined className="ant-icon" />
         </a>
+        </Tooltip>
       </div>
       <div className="footer-btn-container">
           <Button className="footer-btn" text="Vuelve arriba" type="medium" onClick={scrollToTop}/>
