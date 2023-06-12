@@ -1,0 +1,47 @@
+.nuevo-comentario{
+    border-style: solid;
+    background-color: white;
+    width:50%;
+    margin-left: 1%;
+    border-radius: 10px;
+}
+.displayFlex{
+    display: flex;
+    justify-content: center;
+}
+.tit{
+    margin-right: 10px;
+}
+.content{
+    width:94%;
+    height: 100px;
+    margin-left: 3%;
+}
+.divContent{
+    margin-top: 1%;
+}
+.labelCont{
+    margin-left: 3%;
+}
+.divBoton{
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: end;
+}
+.inputVal{
+    margin-left:5px
+}
+.h2NC{
+    text-align: center;
+}
+
+@media (max-width:540px){
+    .displayFlex{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .tit{
+        margin-bottom: 10px;
+    }
+}
