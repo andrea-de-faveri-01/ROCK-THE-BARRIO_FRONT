@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./NuevoComentario.css";
 
 import Button from "../Button/Button";
@@ -9,7 +9,7 @@ import { addComentario } from "../../redux/comentarios/comentarios.actions";
 const NuevoComentario = ({ eventoId, user }) => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
-  const {error} = useSelector((state) => state.comentariosReducer); 
+
   const onSubmit = (data) => {
     const comentarioData = {
       title: data.titulo,
@@ -21,27 +21,37 @@ const NuevoComentario = ({ eventoId, user }) => {
     console.log(comentarioData);
     dispatch(addComentario(comentarioData));
     reset();
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   return (
+    <div>
     <div className="nuevo-comentario">
-      <h2>Nuevo Comentario</h2>
+      <h2 className="h2NC">Danos tu opinión</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <label>Título</label>
-          <input type="text" {...register("titulo")} />
+        <div className="displayFlex">
+        <div className="form-group tit">
+            <label>Título</label>
+            <input type="text" {...register("titulo")} className="inputVal"/>
+          </div>
+          <div className="form-group">
+            <label>Valoración</label>
+            <input type="number" {...register("valoracion")} min={0} max={5} className="inputVal"/>
+          </div>
         </div>
-        <div className="form-group">
-          <label>Contenido</label>
-          <textarea {...register("contenido")}></textarea>
+
+        <div className="form-group divContent">
+          <label className="labelCont">Contenido</label>
+          <textarea {...register("contenido")} className="content"></textarea>
         </div>
-        <div className="form-group">
-          <label>Valoración</label>
-          <input type="number" {...register("valoracion")} min={0} max={5}/>
+        <div className="divBoton">
+        <Button type="medium" text="Enviar" />
         </div>
-        {error && <p >{error}</p>} 
-        <Button type="submit" text="Enviar" />
+
       </form>
+    </div>
     </div>
   );
 };

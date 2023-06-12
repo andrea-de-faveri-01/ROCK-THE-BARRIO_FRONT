@@ -1,5 +1,5 @@
 @media (min-width: 420px) {
-    .card {
+    .cardReg {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -11,14 +11,14 @@
         margin-bottom: 20px;
         text-align: center;
         width: 90%;
-        margin-top: 2%;
+        margin-top: 20%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         background-image:linear-gradient(to bottom, rgb(237 132 57), #fff);
         border: solid black;
         padding-right: 6px;
       }
-      .card {
+      .cardReg {
         opacity: 0;
         transform: translateX(-100px);
         animation: appearCard 0.5s ease-in-out forwards;
@@ -34,7 +34,7 @@
           transform: translateX(0);
         }
       }
-      .input{
+      .inputReg{
         width: 100%;
         height: 100%;
         border-radius: 10px;
@@ -42,19 +42,27 @@
         text-align: center;
       }
     
-      .div-input{
+      .div-inputReg{
         height: 30px;
-        margin-top: 5%;
+        margin-top: 10%;
         width: 94%;
       }
-      .margin-boton{
+      .margin-botonReg{
         margin-top: 5%;
+      }
+      .fechaReg{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
       }
     
   }
 
   @media (max-width: 420px) {
-    .card {
+    .cardReg {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -69,11 +77,11 @@
         margin-top: 20%;
         margin-left: 2.5%;
         margin-right: 2.5%;
-        background-image:linear-gradient(to bottom, #56b8ff, #fff);
+        background-image:linear-gradient(to bottom, rgb(237 132 57), #fff);
         border: solid black;
         padding-right: 8px;
       }
-      .card {
+      .cardReg {
         opacity: 0;
         transform: translateX(-100px);
         animation: appearCard 0.5s ease-in-out forwards;
@@ -89,7 +97,7 @@
           transform: translateX(0);
         }
       }
-      .input{
+      .inputReg{
         width: 80%;
         height: 100%;
         border-radius: 10px;
@@ -97,13 +105,27 @@
         text-align: center;
       }
     
-      .div-input{
+      .div-inputReg{
         height: 30px;
-        margin-top: 5%;
+        margin-top: 10%;
         width: 94%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
-      .margin-boton{
-        margin-top: 5%;
+      .margin-botonReg{
+        margin-top: 10%;
+      }
+      .fechaReg{
+        width: 81%;
+        height: 100%;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 25px;
+        font-size: large;
       }
   }
 

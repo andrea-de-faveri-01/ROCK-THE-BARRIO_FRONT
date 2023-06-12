@@ -126,8 +126,63 @@
   text-overflow: ellipsis;
 }
 
+@media (max-width:420px){
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-left: 0;
+    width: 90%;
 
-@media (max-width: 768px) {
+  }
+    
+  .border-card {
+    flex-direction: column;
+    height: auto;
+    margin-right:4%
+  }
+  
+  .div-image {
+    max-height: 300px;
+
+  }
+  .card img{
+    max-height: 300px;
+  }
+  
+  .div{
+    flex-basis: 100%;
+    margin-top: 1%;
+  } 
+  .div2 {
+    flex-basis: 100%;
+    margin-top: 15%;
+  }
+  .card h2{
+    text-align: start;
+    margin-left: 2%;
+  }
+  .card p{
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+  .card h1{
+    margin-left: 2%;
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+@media (min-width:420px) and (max-width: 1014px) {
   .card {
     display: flex;
     flex-direction: column;
@@ -144,11 +199,12 @@
   .border-card {
     flex-direction: column;
     height: auto;
+    margin-right:4%
   }
   
   .div-image {
-    margin: 0;
     max-height: 300px;
+
   }
   .card img{
     max-height: 300px;
@@ -179,7 +235,7 @@
 }
 
 
-/* Pantallas grandes */
+/* Pantallas grandes
 @media (min-width: 769px) and (max-width: 992px) {
   .card h1{
     margin-left: 2%;
@@ -200,10 +256,10 @@
     font-size: 18px;
     text-align: left;
   }
-}
+} */
 
 /* Pantallas extra grandes */
-@media (min-width: 993px) {
+@media (min-width: 1015px) {
   .card h1 {
     font-size: 35px;
   }

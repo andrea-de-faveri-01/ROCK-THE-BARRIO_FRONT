@@ -1,5 +1,5 @@
  @media (min-width: 420px) {
-    .card {
+    .cardLogin {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -11,14 +11,14 @@
         margin-bottom: 20px;
         text-align: center;
         width: 90%;
-        margin-top: 2%;
+        margin-top: 10%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         background-image:linear-gradient(to bottom, rgb(237 132 57), #fff);
         border: solid black;
         padding-right: 6px;
       }
-      .card {
+      .cardLogin {
         opacity: 0;
         transform: translateX(-100px);
         animation: appearCard 0.5s ease-in-out forwards;
@@ -34,7 +34,7 @@
           transform: translateX(0);
         }
       }
-      .input{
+      .inputLogin{
         width: 100%;
         height: 100%;
         border-radius: 10px;
@@ -42,7 +42,7 @@
         text-align: center;
       }
     
-      .div-input{
+      .div-inputLogin{
         height: 30px;
         margin-top: 7%;
         width: 94%;
@@ -54,7 +54,7 @@
   }
 
   @media (max-width: 420px) {
-    .card {
+    .cardLogin {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -69,11 +69,11 @@
         margin-top: 20%;
         margin-left: 2.5%;
         margin-right: 2.5%;
-        background-image:linear-gradient(to bottom, #56b8ff, #fff);
+        background-image:linear-gradient(to bottom, rgb(237 132 57), #fff);
         border: solid black;
         padding-right: 8px;
       }
-      .card {
+      .cardLogin {
         opacity: 0;
         transform: translateX(-100px);
         animation: appearCard 0.5s ease-in-out forwards;
@@ -89,7 +89,7 @@
           transform: translateX(0);
         }
       }
-      .input{
+      .inputLogin{
         width: 80%;
         height: 100%;
         border-radius: 10px;
@@ -97,12 +97,12 @@
         text-align: center;
       }
     
-      .div-input{
+      .div-inputLogin{
         height: 30px;
         margin-top: 7%;
         width: 94%;
       }
-      .margin-boton{
+      .margin-botonLogin{
         margin-top: 5%;
       }
       

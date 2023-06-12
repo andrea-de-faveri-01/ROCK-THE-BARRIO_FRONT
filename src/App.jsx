@@ -9,7 +9,11 @@ import Login from "./pages/Login/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { Component, useEffect, useState } from "react";
 import { checkSesion, setUser } from "./redux/usuarios/usuarios.actions";
+
 import EditarEvento from "./pages/EditarEvento/EditarEvento";
+
+// import Footer from "./components/Footer/Footer";
+
 
 function App() {
 
@@ -36,6 +40,7 @@ function App() {
       </Routes>
       :
       ""}
+      {/* <Footer/> */}
            
     </div>
 

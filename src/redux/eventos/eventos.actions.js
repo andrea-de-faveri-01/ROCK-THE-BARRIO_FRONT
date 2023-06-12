@@ -12,7 +12,7 @@ const getAllEventos = () => async () => {
 };
 
 const getEventoById = (id) => async () => {
-  dispatch({ type: "CLEAR_EVENTO" });
+  //dispatch({ type: "CLEAR_EVENTO" });
   dispatch({ type: "LOADING" });
 
   const resultado = await API.get(`/evento/getbyid/${id}`);
@@ -54,7 +54,10 @@ const addEvento = (eventoData, navigate, userId) => async () => {
     navigate("/");
 
 
-    dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+
+    // dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+
+
   } catch (error) {
     dispatch({ type: "ERROR_EVENTO", contenido: error.message });
   }
