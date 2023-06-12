@@ -3,19 +3,24 @@ import store from "../store.js";
 
 const { dispatch } = store;
 
-const getAllComentarios =()=> async () => {
+const getAllComentarios = () => async () => {
   dispatch({ type: "LOADING" });
-  const resultado = await API.get("comentario");
+  try {
+    const resultado = await API.get("/comentario");
+    dispatch({ type: "GET_COMENTARIOS", contenido: resultado.data });
 
-  dispatch({ type: "GET_COMENTARIOS", contenido: resultado.data });
+  } catch (error) {
+    dispatch({ type: "ERROR_COMENTARIOS", contenido: error.response.data.message });
+  }
+ 
 };
 
 const addComentario = (comentarioData) => async (dispatch) => {
   dispatch({ type: "LOADING" });
   try {
     const resultado = await API.post("/comentario", comentarioData);
-
     dispatch({ type: "ADD_COMENTARIO", contenido: resultado.data });
+
   } catch (error) {
     dispatch({ type: "ERROR_COMENTARIOS", contenido: error.response.data.message });
   }
@@ -23,16 +28,20 @@ const addComentario = (comentarioData) => async (dispatch) => {
 
 const getComentariosByEvent = async (eventId) => {
   dispatch({ type: "LOADING" });
+  try {
+    const resultado = await API.get(`/comentario/getbyevent/${eventId}`);
 
-  const resultado = await API.get(`comentario/getbyevent/${eventId}`);
+    dispatch({ type: "GET_COMENTARIOSBYEVENTO", contenido: resultado.data });
+  } catch (error) {
+    dispatch({ type: "ERROR_COMENTARIOS", contenido: error.response.data.message });
+  }
 
-  dispatch({ type: "GET_COMENTARIOSBYEVENTO", contenido: resultado.data });
 };
 
-const editComentario = (idComentario, comentarioData)=> async () => {
+const editComentario = (idComentario, comentarioData) => async () => {
   dispatch({ type: "LOADING" });
   try {
-    
+
     const resultado = await API.put(
       `/comentario/${idComentario}`,
       comentarioData
@@ -46,10 +55,10 @@ const editComentario = (idComentario, comentarioData)=> async () => {
   }
 };
 
-const deleteComentario =  (idComentario)=> async () => {
+const deleteComentario = (idComentario) => async () => {
   dispatch({ type: "LOADING" });
   try {
-    const resultado = await API.delete(`comentario/${idComentario}`);
+    const resultado = await API.delete(`/comentario/${idComentario}`);
 
     dispatch({ type: "DELETE_COMENTARIO", contenido: resultado.data });
   } catch (error) {
