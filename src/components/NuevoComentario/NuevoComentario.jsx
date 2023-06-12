@@ -19,7 +19,7 @@ const NuevoComentario = ({ eventoId, user }) => {
       user: user._id,
     };
     console.log(comentarioData);
-    dispatch(addComentario(comentarioData));
+    dispatch(addComentario(comentarioData, eventoId));
     reset();
     
   };
