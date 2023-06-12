@@ -32,7 +32,7 @@ const NuevoComentario = ({ eventoId, user }) => {
         <div className="displayFlex">
         <div className="form-group tit">
             <label>Título</label>
-            <input type="text" {...register("titulo")} className="inputVal"/>
+            <input type="text" {...register("titulo")} className="inputTit"/>
           </div>
           <div className="form-group">
             <label>Valoración</label>

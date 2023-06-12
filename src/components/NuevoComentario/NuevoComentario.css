@@ -14,7 +14,7 @@
     margin-left: 1%;
 }
 .content{
-    width:94%;
+    width:90%;
     height: 100px;
     margin-right: 2%;
     margin-left: 2%;
@@ -36,7 +36,14 @@
     margin-left:1%;
     margin-top:2%;
     margin-bottom: 2%;
-    border:solid 1px
+    border:solid 1px;
+}
+.inputTit{
+    margin-left:1%;
+    margin-top:2%;
+    margin-bottom: 2%;
+    border:solid 1px;
+    width:90%
 }
 .h2NC{
     text-align: center;
