@@ -61,7 +61,7 @@ const dispatch=useDispatch();
 
         <div>
           <div>
-            {user && <NuevoComentario eventoId={evento._id} user={user} />}
+            {user ? <NuevoComentario eventoId={evento._id} user={user} />:<p>Debes registrarte para poder comentar</p>}
           </div>
           <div>
             {evento ? <ComentariosList eventoId={evento._id} /> : null}

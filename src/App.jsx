@@ -21,7 +21,7 @@ function App() {
   }, []);
   return (
     <>
-    <div className="background">
+    <div >
     <Header/>
     {sesionVerificada ? 
       <Routes>

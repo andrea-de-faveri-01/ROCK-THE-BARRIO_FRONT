@@ -9,6 +9,11 @@
     display: flex;
     justify-content: space-between;
     box-shadow: 10px 10px 10px rgba(197, 158, 28, 0.452);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+   
 
   }
   .link:link {
@@ -28,6 +33,7 @@
   
   .navbar {
     margin-bottom:70px;
+    margin-right: 30px;
   }
   
   .boton {

@@ -17,7 +17,7 @@ const EventosList = () => {
       
 
  return (
-   <div>
+   <div className='eventos-top'>
    {loading  && (
     <div  className='div-img'><img src="/assets/music.gif"/></div>
    )}
