@@ -19,7 +19,7 @@ const FormularioRegistro = () => {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   return (
-    <div className="card">
+    <div className="cardReg">
 
       <h1>DATE DE ALTA</h1>
       <form
@@ -27,30 +27,29 @@ const FormularioRegistro = () => {
           dispatch(registerUser(datos, navigate))
         )}
       >
-        <div className="div-input">
+        <div className="div-inputReg">
           <label className="margin-label">E-mail</label>
           <input
             {...register("email")}
             type="email"
             name="email"
             id="email"
-            className="input"
+            className="inputReg"
           />
         </div>
-        <div className="div-input">
-
-          <label className="margin-label">Contraseña</label>
-          <input {...register("password")} type="password" className="input" />
+        <div className="div-inputReg">
+          <label className="margin-labelReg">Contraseña</label>
+          <input {...register("password")} type="password" className="inputReg" />
         </div>
-        <div className="div-input">
+        <div className="div-inputReg">
           <label className="margin-label">Usuario</label>
-          <input {...register("username")} className="input" />
+          <input {...register("username")} className="inputReg" />
         </div>
-        <div className="div-input">
+        <div className="div-inputReg">
           <label className="margin-label">Fecha de nacimiento</label>
-          <input {...register("birthday")} type="date" className="input" />
+          <input {...register("birthday")} type="date" className="fechaReg" />
         </div>
-        <div className="div-input">
+        <div className="div-inputReg">
           <label>Imagen</label>
           <SubirImagen
             register={register}
@@ -58,10 +57,10 @@ const FormularioRegistro = () => {
               setImageFile(URL.createObjectURL(e.target.files[0]))
             }
           />
-          {imageFile && <img className="imagen" src={imageFile} />}
+          {imageFile && <img className="imagenReg" src={imageFile} />}
         </div>
         <p className="error">{error && error}</p>
-        <div className="margin-boton">
+        <div className="margin-botonReg">
           <Button text="Registrarse" type="large" />
         </div>
       </form>

@@ -83,19 +83,20 @@ const DetallesEvento = () => {
                 )}
               </div>
             </div>
-
             <div>
-              <div>
-                {user ? (
-                  <NuevoComentario eventoId={evento._id} user={user} />
-                ) : (
-                  <p>Debes registrarte para poder comentar</p>
-                )}
+              <div  className="center">
+                <div>
+                  {user ? (
+                    <NuevoComentario eventoId={evento._id} user={user} />
+                  ) : (
+                    <p>Debes registrarte para poder comentar</p>
+                  )}
+                </div>
+                <div>
+                  {evento ? <ComentariosList eventoId={evento._id} /> : null}
+                </div>
               </div>
-              <div>
-                {evento ? <ComentariosList eventoId={evento._id} /> : null}
-              </div>
-            </div>
+            </div>  
           </div>
         </>
       ) : (
