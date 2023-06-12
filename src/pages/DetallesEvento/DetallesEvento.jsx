@@ -84,7 +84,7 @@ const DetallesEvento = () => {
               </div>
             </div>
             <div>
-              <div  className="center">
+              <div>
                 <div>
                   {user ? (
                     <NuevoComentario eventoId={evento._id} user={user} />
@@ -93,8 +93,11 @@ const DetallesEvento = () => {
                   )}
                 </div>
                 <div>
+                <div className="divCardDetEv comentarioDetEv">
                   {evento ? <ComentariosList eventoId={evento._id} /> : null}
                 </div>
+                </div>
+
               </div>
             </div>  
           </div>

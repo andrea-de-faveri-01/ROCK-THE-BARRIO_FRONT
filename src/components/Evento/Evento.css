@@ -182,7 +182,7 @@
 }
 
 
-@media (min-width:420px) and (max-width: 992px) {
+@media (min-width:420px) and (max-width: 1014px) {
   .card {
     display: flex;
     flex-direction: column;
@@ -259,7 +259,7 @@
 } */
 
 /* Pantallas extra grandes */
-@media (min-width: 993px) {
+@media (min-width: 1015px) {
   .card h1 {
     font-size: 35px;
   }

@@ -24,6 +24,7 @@ const NuevoComentario = ({ eventoId, user }) => {
   };
 
   return (
+    <div>
     <div className="nuevo-comentario">
       <h2 className="h2NC">¿Has participado en el evento? ¡Cuéntanos qué tal!</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -47,6 +48,7 @@ const NuevoComentario = ({ eventoId, user }) => {
         </div>
 
       </form>
+    </div>
     </div>
   );
 };
