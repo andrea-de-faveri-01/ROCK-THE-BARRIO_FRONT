@@ -97,7 +97,7 @@ const Comentario = ({ comentario }) => {
             </div>
           }
           bordered={true}
-          style={{ width: 500 }}
+          // style={{ width: 100% }}
         >
           {/* {comentario.user.avatar ? (
           <img src={comentario.user.avatar} alt="user avatar" />
