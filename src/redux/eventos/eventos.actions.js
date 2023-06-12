@@ -17,6 +17,7 @@ const getEventoById = (id) => async () => {
 
   const resultado = await API.get(`/evento/getbyid/${id}`);
   dispatch({ type: "GET_EVENTO", contenido: resultado.data });
+  
 };
 
 const addEvento = (eventoData, navigate, userId) => async () => {
@@ -58,6 +59,41 @@ const addEvento = (eventoData, navigate, userId) => async () => {
     dispatch({ type: "ERROR_EVENTO", contenido: error.message });
   }
 };
+ const editEvento = (id, eventoData, navigate) => {
+  return async (dispatch) => {
+    dispatch({ type: "LOADING" });
+
+    try {
+      const formData = new FormData();
+     
+  
+      formData.append("title", eventoData.title);
+      formData.append("subtitle", eventoData.subtitle);
+      formData.append("site", eventoData.site);
+      formData.append("price", eventoData.price);
+      formData.append("date_start", eventoData.date_start);
+      if (eventoData.date_end) {
+        formData.append("date_end", eventoData.date_end);
+      }
+  
+      formData.append("genre", eventoData.genre);
+      formData.append("content", eventoData.content);
+      formData.append("url", eventoData.url);
+      if (eventoData.image[0] !== undefined) {
+        formData.append("image", eventoData.image[0]);
+      }
+      const resultado=await APIIMAGES.put(`/evento/${id}`, formData);
+
+
+      dispatch({ type: "EDIT_EVENTO",contenido :{id: id, datos: resultado.data} });
+
+     
+      navigate(`/evento/${id}`);
+    } catch (error) {
+      dispatch({ type: "ERROR_EVENTO", contenido: error.message });
+    }
+  };
+};
 const deleteEvento = (eventoId, navigate) => async () => {
   dispatch({ type: "LOADING" });
 
@@ -70,4 +106,4 @@ const deleteEvento = (eventoId, navigate) => async () => {
   }
 };
 
-export { getAllEventos, getEventoById, addEvento, deleteEvento };
+export { getAllEventos, getEventoById, addEvento, deleteEvento, editEvento };
