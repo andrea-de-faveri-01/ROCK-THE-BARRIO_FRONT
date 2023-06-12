@@ -21,11 +21,14 @@ const NuevoComentario = ({ eventoId, user }) => {
     console.log(comentarioData);
     dispatch(addComentario(comentarioData));
     reset();
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   return (
     <div className="nuevo-comentario">
-      <h2 className="h2NC">¿Has participado en el evento? ¡Cuéntanos qué tal!</h2>
+      <h2 className="h2NC">Danos tu opinión</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="displayFlex">
         <div className="form-group tit">

@@ -15,20 +15,20 @@ const FormularioLogin = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="card">
+    <div className="cardLogin">
       <div>
         <h1>Iniciar Sesión</h1>
       </div>
       <form onSubmit={handleSubmit((datos) => dispatch(login(datos, navigate)))}>
-        <div className="div-input">
+        <div className="div-inputLogin">
           <label>
-          <input {...register("username")} placeholder="Usuario"className="input"/></label>
+          <input {...register("username")} placeholder="Usuario"className="inputLogin"/></label>
         </div>
-        <div className="div-input">
+        <div className="div-inputLogin">
           <label>
-          <input {...register("password")} type="password" placeholder="Contraseña"className="input"/></label>
+          <input {...register("password")} type="password" placeholder="Contraseña"className="inputLogin"/></label>
         </div>
-        <div className="margin-boton">
+        <div className="margin-botonLogin">
         <Button text="Login" type="large"/>
         {error && <p>{error}</p>} 
         </div>

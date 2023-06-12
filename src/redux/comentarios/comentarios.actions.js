@@ -20,7 +20,6 @@ const addComentario = (comentarioData) => async (dispatch) => {
   try {
     const resultado = await API.post("/comentario", comentarioData);
     dispatch({ type: "ADD_COMENTARIO", contenido: resultado.data });
-
   } catch (error) {
     dispatch({ type: "ERROR_COMENTARIOS", contenido: error.response.data.message });
   }
