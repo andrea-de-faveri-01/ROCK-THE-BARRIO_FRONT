@@ -13,7 +13,7 @@ const Navbar = () => {
   
 
   return (
-    <div>
+    <div >
       {user ? (
         <div className="disp">
           <h3 className="h3">Hola {user.username}</h3>

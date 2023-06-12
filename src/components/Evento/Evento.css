@@ -13,7 +13,7 @@
   margin-top: 2%;
   margin-left: 2.5%;
   margin-right: 2.5%;
-  background-image:linear-gradient(to bottom, #56b8ff, #fff);
+  background-image:linear-gradient(to bottom, rgb(237 132 57), #fff);
   border: solid black;
 }
 .card {

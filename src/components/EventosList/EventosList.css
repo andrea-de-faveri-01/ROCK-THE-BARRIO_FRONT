@@ -8,3 +8,6 @@ display: flex;
 justify-content: center;
 margin-top: 5%;
 }
+.eventos-top{
+    padding-top: 30px;
+}

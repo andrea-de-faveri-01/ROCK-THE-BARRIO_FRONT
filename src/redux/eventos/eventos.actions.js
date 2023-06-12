@@ -58,5 +58,16 @@ const addEvento = (eventoData, navigate, userId) => async () => {
     dispatch({ type: "ERROR_EVENTO", contenido: error.message });
   }
 };
+const deleteEvento = (eventoId, navigate) => async () => {
+  dispatch({ type: "LOADING" });
 
-export { getAllEventos, getEventoById, addEvento };
+  try {
+    await API.delete(`/evento/${eventoId}`);
+    dispatch({ type: "DELETE_EVENTO", contenido: eventoId });
+    navigate("/")
+  } catch (error) {
+    dispatch({ type: "ERROR_EVENTO", contenido: error.message });
+  }
+};
+
+export { getAllEventos, getEventoById, addEvento, deleteEvento };

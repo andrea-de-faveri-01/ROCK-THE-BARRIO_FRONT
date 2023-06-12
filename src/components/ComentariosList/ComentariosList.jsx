@@ -31,7 +31,7 @@ const ComentariosList = ({eventoId}) => {
        <Comentario comentario={comentario} key={comentario._id}/>
     );
    }))
-   :""
+   :<p>No hay ningún comentario actualmente</p>
    }
    </div>
  )}
