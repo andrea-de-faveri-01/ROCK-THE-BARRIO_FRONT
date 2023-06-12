@@ -53,7 +53,7 @@ const addEvento = (eventoData, navigate, userId) => async () => {
     navigate("/");
 
 
-    dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
+    // dispatch({ type: "ADD_EVENTO", contenido: resultado.data });
   } catch (error) {
     dispatch({ type: "ERROR_EVENTO", contenido: error.message });
   }
