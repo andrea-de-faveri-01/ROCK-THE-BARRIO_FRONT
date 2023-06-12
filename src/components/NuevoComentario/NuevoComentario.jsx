@@ -21,9 +21,7 @@ const NuevoComentario = ({ eventoId, user }) => {
     console.log(comentarioData);
     dispatch(addComentario(comentarioData));
     reset();
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+    
   };
 
   return (
