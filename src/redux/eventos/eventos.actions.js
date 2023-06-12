@@ -12,7 +12,7 @@ const getAllEventos = () => async () => {
 };
 
 const getEventoById = (id) => async () => {
-  //dispatch({ type: "CLEAR_EVENTO" });
+  dispatch({ type: "CLEAR_EVENTO" });
   dispatch({ type: "LOADING" });
 
   const resultado = await API.get(`/evento/getbyid/${id}`);
