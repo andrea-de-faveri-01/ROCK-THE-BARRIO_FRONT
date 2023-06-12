@@ -1,4 +1,7 @@
 .header {
+    /* background-image: url("assets/fotoportada.avif");
+    background-size: cover;
+    background-position-y: -55px; */
     background-color: #FFE593;
     height: 150px;
     align-items: center;
