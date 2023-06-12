@@ -28,10 +28,12 @@ const dispatch=useDispatch();
     window.location.href = evento.url;
   };
   console.log(user);
+  console.log(evento);
   const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
   const fechaStart = evento?.date_start ? new Date(evento.date_start).toLocaleDateString('es-ES', opciones) : '';
   const fechaEnd = evento?.date_end ? new Date(evento.date_end).toLocaleDateString('es-ES', opciones) : '';
-  
+  let textoBoton=""
+  if (evento?.price && evento?.price>0){textoBoton="Comprar"} else {textoBoton="+Info"}
 
   return (
     
@@ -53,7 +55,7 @@ const dispatch=useDispatch();
             {fechaEnd && <h3>{fechaEnd}</h3>}
             {evento.genre && <h3>Género: {evento.genre}</h3>}
             <p>{evento.content}</p>
-            <div><Button text="Comprar" type="medium" onClick={comprar}/></div>       
+            <div><Button text={textoBoton} type="medium" onClick={comprar}/></div>       
           </div>
         </div>
 
