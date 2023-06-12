@@ -8,6 +8,7 @@ import "./EventosList.css"
 const EventosList = () => {
   const dispatch=useDispatch();
   const { loading, eventos } = useSelector((reducer) => reducer.eventosReducer);
+  const eventosOrdenados = [...eventos].sort((a, b) => new Date(a.date_start) - new Date(b.date_start));
     useEffect(() => {
         dispatch(getAllEventos());
        }, [dispatch])
@@ -20,7 +21,7 @@ const EventosList = () => {
    {loading  && (
     <div  className='div-img'><img src="/assets/music.gif"/></div>
    )}
-   {eventos.map((evento) =>{
+   {eventosOrdenados.map((evento) =>{
     return (
        <Evento evento={evento} key={evento._id}/>
     );
