@@ -17,12 +17,12 @@ const ComentariosList = ({eventoId}) => {
       
 
  return (
-   <div>
-   <div>
+   <div className='div-textAviso'>
+  
    {loading  && (
     <div  className='div-img'><img src="/assets/music.gif"/></div>
    )}
-   </div>
+   
    <h2 className="texto-aviso">COMENTARIOS DEL EVENTO</h2>
    {comentarios.length ?
    (comentarios.map((comentario) =>{

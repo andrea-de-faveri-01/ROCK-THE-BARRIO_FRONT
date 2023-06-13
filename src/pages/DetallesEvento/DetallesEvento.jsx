@@ -101,12 +101,9 @@ const DetallesEvento = () => {
                     <p className="texto-aviso">Debes registrarte para poder comentar</p>
                   )}
                 </div>
-                <div>
                 <div className="divCardDetEv">
                   {evento ? <ComentariosList eventoId={evento._id} /> : null}
                 </div>
-                </div>
-
               </div>
             </div>  
           </div>

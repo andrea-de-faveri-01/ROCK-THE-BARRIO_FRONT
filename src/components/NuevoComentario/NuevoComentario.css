@@ -34,16 +34,18 @@
 }
 .inputVal{
     margin-left:1%;
-    margin-top:2%;
+    margin-top:4%;
     margin-bottom: 2%;
     border:solid 1px;
+    height:40%
 }
 .inputTit{
     margin-left:1%;
     margin-top:2%;
     margin-bottom: 2%;
     border:solid 1px;
-    width:90%
+    width:90%;
+    height:40%
 }
 .h2NC{
     text-align: center;

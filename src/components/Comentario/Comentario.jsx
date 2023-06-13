@@ -79,7 +79,7 @@ const Comentario = ({ comentario }) => {
 
   return (
     <div className="comentario-box">
-      <FluentProvider theme={teamsLightTheme}>
+      <FluentProvider theme={teamsLightTheme} style={{ borderRadius: '10px' }}>
         <Card className="comentario-card"
           title={
             <div className="comentario-title-box">
