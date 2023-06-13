@@ -23,7 +23,7 @@ const ComentariosList = ({eventoId}) => {
     <div  className='div-img'><img src="/assets/music.gif"/></div>
    )}
    </div>
-   <h2>COMENTARIOS DEL EVENTO</h2>
+   <h2 className="texto-aviso">COMENTARIOS DEL EVENTO</h2>
    {comentarios.length ?
    (comentarios.map((comentario) =>{
     return (
@@ -31,7 +31,7 @@ const ComentariosList = ({eventoId}) => {
        <Comentario comentario={comentario} key={comentario._id}/>
     );
    }))
-   :<p>No hay ningún comentario actualmente</p>
+   :<p className="texto-aviso">No hay ningún comentario actualmente</p>
    }
    </div>
  )}

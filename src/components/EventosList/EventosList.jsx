@@ -18,14 +18,15 @@ const EventosList = () => {
 
  return (
    <div className='eventos-top'>
-   {loading  && (
-    <div  className='div-img'><img src="/assets/music.gif"/></div>
-   )}
-   {eventosOrdenados.map((evento) =>{
-    return (
-       <Evento evento={evento} key={evento._id}/>
-    );
-   })}
+    {loading ? (
+        <div className='div-img'>
+          <img src="/assets/music.gif" alt="Cargando..."/>
+        </div>
+      ) : (
+        eventosOrdenados.map((evento) => (
+          <Evento evento={evento} key={evento._id}/>
+        ))
+      )}
    </div>
  )}
 

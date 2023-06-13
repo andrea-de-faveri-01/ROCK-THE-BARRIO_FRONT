@@ -6,8 +6,15 @@ img{
 .div-img{
 display: flex;
 justify-content: center;
-margin-top: 5%;
+margin:auto;
+width: 60%
+
 }
 .eventos-top{
     padding-top: 30px;
+}
+@media (max-width:420px){
+    .div-img{
+        width:100%
+    }
 }
