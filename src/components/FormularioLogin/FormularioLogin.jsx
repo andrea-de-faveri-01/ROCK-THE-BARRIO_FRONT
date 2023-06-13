@@ -18,6 +18,7 @@ const FormularioLogin = () => {
     <div className="cardLogin">
       <div>
         <h1>Iniciar Sesión</h1>
+        {error && <p className="error-message">{error}</p>} 
       </div>
       <form onSubmit={handleSubmit((datos) => dispatch(login(datos, navigate)))}>
         <div className="div-inputLogin">
@@ -30,7 +31,7 @@ const FormularioLogin = () => {
         </div>
         <div className="margin-botonLogin">
         <Button text="Login" type="large"/>
-        {error && <p>{error}</p>} 
+        
         </div>
       </form>
     </div>

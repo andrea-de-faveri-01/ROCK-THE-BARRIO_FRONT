@@ -20,14 +20,16 @@ const setUserData = (resultado, navigate) => {
 
 const login = (datos, navigate) => async () => {
   dispatch({ type: "LOADING_LOGIN" });
-
-  API.post("/usuario/login", datos)
-    .then((resultado) => {
-      setUserData(resultado, navigate);
-    })
-    .catch((error) => {
-      dispatch({ type: "ERROR_USUARIO", contenido: error.response.data });
-    });
+  try {
+    const resultado = await API.post("/usuario/login", datos);
+    setUserData(resultado, navigate);
+  } catch (error) {
+    if (error.response && error.response.data && error.response.data.message) {
+      dispatch({ type: "ERROR_USUARIO", contenido: error.response.data.message });
+    } else {
+      dispatch({ type: "ERROR_USUARIO", contenido: "Error desconocido" });
+    }
+  }
 };
 
 const setUser = (userData) => {
