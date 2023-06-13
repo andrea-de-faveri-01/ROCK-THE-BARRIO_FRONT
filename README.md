@@ -6,11 +6,11 @@ Nuestra aplicación es una plataforma en línea que conecta artistas locales con
 
 ### Página de inicio
 
-La página de inicio muestra un listado completo de eventos y conciertos en el barrio del usuario, con detalles como fecha, hora, lugar y nombre del artista o banda. Los usuarios pueden explorar y elegir entre diversas opciones.
+La página de inicio muestra un listado completo de eventos y conciertos en el barrio del usuario, con detalles como fecha, lugar y nombre del artista o banda. Los usuarios pueden explorar y elegir entre diversas opciones.
 
 ### Página de registro de usuarios
 
-Para acceder a todas las funciones, los usuarios deben registrarse proporcionando información básica en la página de registro. Una vez registrados, pueden iniciar sesión y disfrutar de todas las características disponibles.
+Para acceder a todas las funciones, los usuarios deben registrarse proporcionando información básica en la página de registro. Una vez registrados, ya tienen iniciada la sesión y pueden disfrutar de todas las características disponibles.
 
 ### Página de un evento específico y comentarios de los usuarios
 
