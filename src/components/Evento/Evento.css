@@ -107,6 +107,10 @@
   transition: text-shadow 0.3s ease-in-out;
 }
 
+.hoy{
+  text-align: right;
+}
+
 .gratuito:hover {
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
 }

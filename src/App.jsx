@@ -13,6 +13,7 @@ import { checkSesion, setUser } from "./redux/usuarios/usuarios.actions";
 import EditarEvento from "./pages/EditarEvento/EditarEvento";
 
 import Footer from "./components/Footer/Footer";
+import ScrollArriba from "./components/ScrollArriba/ScrollArriba";
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
     <>
     <div >
     <Header/>
-    {sesionVerificada ? 
+    {sesionVerificada && <ScrollArriba />}
+        {sesionVerificada && (
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/:id' element={<DetallesEvento/>}/>
@@ -38,8 +40,7 @@ function App() {
         <Route path='/login' element={!user ? <Login/> : <Navigate to = "/" replace={true}/> }/>
         <Route path='*' element={<Home/>}/>
       </Routes>
-      :
-      ""}
+    )}
       <Footer/>
            
     </div>

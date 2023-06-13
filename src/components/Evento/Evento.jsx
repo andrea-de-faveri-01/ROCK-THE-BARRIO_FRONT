@@ -12,9 +12,20 @@ const Evento = ({ evento }) => {
     : evento.content: "";
 
   const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-  const fechaStart = evento.date_start ? new Date(evento.date_start).toLocaleDateString('es-ES', opciones) : '';
-  const fechaEnd = evento.date_end ? new Date(evento.date_end).toLocaleDateString('es-ES', opciones) : '';
+  const fechaStart = evento.date_start ? formatDate(evento.date_start) : null;
+const fechaEnd = evento.date_end ? formatDate(evento.date_end) : null;
 
+  
+  console.log(evento.date_start, fechaStart);
+  function formatDate(dateString) {
+    const dateObj = new Date(dateString);
+    return dateObj.toLocaleDateString('es-ES', opciones);
+  }
+  function esHoy(fecha) {
+    const fechaActual = new Date();
+    const fechaActualFormateada = fechaActual.toLocaleDateString('es-ES', opciones);
+    return fecha === fechaActualFormateada;
+  }
 
   return (
     <div className="card">
@@ -38,7 +49,12 @@ const Evento = ({ evento }) => {
         </div>
         <div className="div2">
           {evento.site && <p>{evento.site}</p>}
-          {fechaStart && <p>{fechaStart} {fechaEnd && `- ${fechaEnd}`}</p>}
+          {fechaStart && (
+    <p>
+      {esHoy(fechaStart) ? <p className="gratuito hoy">HOY</p> : fechaStart}
+      {fechaEnd && `- ${fechaEnd}`}
+    </p>
+  )}
           {evento.genre && <p>{evento.genre}</p>}
           {evento.price == 0 ? <p className="gratuito">GRATUITO</p> : evento.price && <p>{evento.price} €</p>}
         </div>
