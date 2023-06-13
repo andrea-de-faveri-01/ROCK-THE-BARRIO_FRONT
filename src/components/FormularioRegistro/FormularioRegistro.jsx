@@ -11,7 +11,7 @@ const FormularioRegistro = () => {
   const dispatch = useDispatch();
   const [imageFile, setImageFile] = useState();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const { error } = useSelector((state) => state.usuariosReducer);
   const navigate = useNavigate();
 
@@ -30,20 +30,24 @@ const FormularioRegistro = () => {
         <div className="div-inputReg">
           <label className="margin-label">E-mail</label>
           <input
-            {...register("email")}
+            {...register("email", { required: true })}
             type="email"
             name="email"
             id="email"
             className="inputReg"
           />
+           {errors.email && <span className="error-message">Email es requerido</span>}
         </div>
         <div className="div-inputReg">
           <label className="margin-labelReg">Contraseña</label>
-          <input {...register("password")} type="password" className="inputReg" />
+          <input {...register("password", { required: true })} type="password" className="inputReg" />
+          {errors.password && <span className="error-message">Password es requerida</span>}
         </div>
+        
         <div className="div-inputReg">
           <label className="margin-label">Usuario</label>
-          <input {...register("username")} className="inputReg" />
+          <input {...register("username", { required: true })} className="inputReg" />
+          {errors.username && <span className="error-message">Usuario es requerido</span>}
         </div>
         <div className="div-inputReg">
           <label className="margin-label">Fecha de nacimiento</label>
@@ -59,7 +63,7 @@ const FormularioRegistro = () => {
           />
           {imageFile && <img className="imagenReg" src={imageFile} />}
         </div>
-        <p className="error">{error && error}</p>
+        <p className="error-message">{error && error}</p>
         <div className="margin-botonReg">
           <Button text="Registrarse" type="large" />
         </div>
