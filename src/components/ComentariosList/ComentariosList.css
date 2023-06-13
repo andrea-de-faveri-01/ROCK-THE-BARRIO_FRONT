@@ -12,3 +12,9 @@ margin-top: 5%;
 .div-textAviso{
     width: 50%
 }
+
+@media (max-width: 720px){
+    .div-textAviso{
+        width: 90%
+    }
+}
