@@ -23,6 +23,11 @@
         transform: translateX(-100px);
         animation: appearCard 0.5s ease-in-out forwards;
       }
+      .imagenReg {
+        padding-top: 5px;
+        width: 50%;
+        height: 7vh;
+    }
       
       @keyframes appearCard {
         0% {
@@ -49,6 +54,7 @@
       }
       .margin-botonReg{
         margin-top: 5%;
+        padding-top: 100px;
       }
       .fechaReg{
         width: 100%;
