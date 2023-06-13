@@ -22,6 +22,7 @@ const FormularioRegistro = () => {
     <div className="cardReg">
 
       <h1>DATE DE ALTA</h1>
+      <p className="error-message">{error }</p>
       <form
         onSubmit={handleSubmit((datos) =>
           dispatch(registerUser(datos, navigate))
@@ -63,7 +64,7 @@ const FormularioRegistro = () => {
           />
           {imageFile && <img className="imagenReg" src={imageFile} />}
         </div>
-        <p className="error-message">{error && error}</p>
+        
         <div className="margin-botonReg">
           <Button text="Registrarse" type="large" />
         </div>
