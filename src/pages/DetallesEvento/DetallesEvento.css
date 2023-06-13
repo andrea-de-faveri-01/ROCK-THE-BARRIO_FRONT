@@ -1,13 +1,10 @@
-/* img{
-    width: 50%;
-    height: 50%;
-    
+.texto-aviso{
+  color: white;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 5px 10px;
 }
-.div-img{
-display: flex;
-justify-content: center;
-margin-top: 5%;
-} */
 .cardDetEv {
   display: flex;
   flex-direction: column;
