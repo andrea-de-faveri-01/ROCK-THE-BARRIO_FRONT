@@ -4,6 +4,7 @@
     width:50%;
     margin: 0 auto;
     border-radius: 10px;
+    margin-bottom: 50px;
 }
 .displayFlex{
     display: flex;
